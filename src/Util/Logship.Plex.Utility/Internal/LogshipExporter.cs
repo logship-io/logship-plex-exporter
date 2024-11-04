@@ -37,7 +37,7 @@ namespace Logship.Plex.Utility.Internal
         {
             using var stream = new MemoryStream(1000);
             using var client = factory.CreateClient(nameof(LogshipExporter));
-            await UploadMetrics(client, endpoint, Guid.Empty, this.bearerToken, entries, token);
+            await UploadMetrics(client, endpoint, this.account, this.bearerToken, entries, token);
         }
 
         private static async Task UploadMetrics(HttpClient client, string endpoint, Guid subscription, string bearerToken, IReadOnlyList<LogshipLogEntrySchema> entries, CancellationToken token)
