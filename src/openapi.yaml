@@ -1,0 +1,2008 @@
+openapi: 3.1.1
+info:
+  title: Plex API
+  description: |
+    Plex OpenAPI Spec
+  version: 0.0.1
+servers:
+  - url: "{hostname}"
+    description: Plex Media Server
+    variables:
+      hostname:
+        default: http://localhost32400
+        description: Plex server hostname
+paths:
+  "/":
+    get:
+      tags:
+        - Server
+      summary: Get Server Capabilities
+      description: Get Server Capabilities
+      operationId: getServerCapabilities
+      responses:
+        "200":
+          description: The Server Capabilities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: number
+                      allowCameraUpload:
+                        type: boolean
+                      allowChannelAccess:
+                        type: boolean
+                      allowMediaDeletion:
+                        type: boolean
+                      allowSharing:
+                        type: boolean
+                      allowSync:
+                        type: boolean
+                      allowTuners:
+                        type: boolean
+                      backgroundProcessing:
+                        type: boolean
+                      certificate:
+                        type: boolean
+                      companionProxy:
+                        type: boolean
+                      countryCode:
+                        type: string
+                      diagnostics:
+                        type: string
+                      eventStream:
+                        type: boolean
+                      friendlyName:
+                        type: string
+                      hubSearch:
+                        type: boolean
+                      itemClusters:
+                        type: boolean
+                      livetv:
+                        type: number
+                      machineIdentifier:
+                        type: string
+                      mediaProviders:
+                        type: boolean
+                      multiuser:
+                        type: boolean
+                      musicAnalysis:
+                        type: number
+                      myPlex:
+                        type: boolean
+                      myPlexMappingState:
+                        type: string
+                      myPlexSigninState:
+                        type: string
+                      myPlexSubscription:
+                        type: boolean
+                      myPlexUsername:
+                        type: string
+                      offlineTranscode:
+                        type: number
+                      ownerFeatures:
+                        type: string
+                      photoAutoTag:
+                        type: boolean
+                      platform:
+                        type: string
+                      platformVersion:
+                        type: string
+                      pluginHost:
+                        type: boolean
+                      pushNotifications:
+                        type: boolean
+                      readOnlyLibraries:
+                        type: boolean
+                      streamingBrainABRVersion:
+                        type: number
+                      streamingBrainVersion:
+                        type: number
+                      sync:
+                        type: boolean
+                      transcoderActiveVideoSessions:
+                        type: number
+                      transcoderAudio:
+                        type: boolean
+                      transcoderLyrics:
+                        type: boolean
+                      transcoderPhoto:
+                        type: boolean
+                      transcoderSubtitles:
+                        type: boolean
+                      transcoderVideo:
+                        type: boolean
+                      transcoderVideoBitrates:
+                        type: string
+                      transcoderVideoQualities:
+                        type: string
+                      transcoderVideoResolutions:
+                        type: string
+                      updatedAt:
+                        type: number
+                      updater:
+                        type: boolean
+                      version:
+                        type: string
+                      voiceSearch:
+                        type: boolean
+                      Directory:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            count:
+                              type: integer
+                            key:
+                              type: string
+                            title:
+                              type: string
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/activities":
+    get:
+      tags:
+        - Activities
+      summary: Get Server Activities
+      description: Get Server Activities
+      operationId: getServerActivities
+      responses:
+        "200":
+          description: The Server Activities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: number
+                      Activity:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            uuid:
+                              type: string
+                            type:
+                              type: string
+                            cancellable:
+                              type: boolean
+                            userID:
+                              type: number
+                            title:
+                              type: string
+                            subtitle:
+                              type: string
+                            progress:
+                              type: number
+                            Context:
+                              type: object
+                              properties:
+                                librarySectionID:
+                                  type: string
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/butler":
+    get:
+      tags:
+        - Butler
+      summary: Get Butler tasks
+      description: Returns a list of butler tasks
+      operationId: getButlerTasks
+      responses:
+        "200":
+          description: All butler tasks
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ButlerTasks:
+                    type: object
+                    properties:
+                      ButlerTask:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: BackupDatabase
+                            interval:
+                              type: number
+                              example: 3
+                            scheduleRandomized:
+                              type: boolean
+                            enabled:
+                              type: boolean
+                            title:
+                              type: string
+                              example: Backup Database
+                            description:
+                              type: string
+                              example: Create a backup copy of the server's database in the configured backup directory
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/clients":
+    get:
+      tags:
+        - Server
+      summary: Get Available Clients
+      description: Get Available Clients
+      operationId: getAvailableClients
+      responses:
+        "200":
+          description: Available Clients
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: number
+                        example: 1
+                      Server:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: iPad
+                            host:
+                              type: string
+                              example: 10.10.10.102
+                            address:
+                              type: string
+                              example: 10.10.10.102
+                            port:
+                              type: number
+                              example: 32500
+                            machineIdentifier:
+                              type: string
+                              example: A2E901F8-E016-43A7-ADFB-EF8CA8A4AC05
+                            version:
+                              type: string
+                              example: "8.17"
+                            protocol:
+                              type: string
+                              example: plex
+                            product:
+                              type: string
+                              example: Plex for iOS
+                            deviceClass:
+                              type: string
+                              example: tablet
+                            protocolVersion:
+                              type: string
+                              example: 2
+                            protocolCapabilities:
+                              type: string
+                              example: "playback,playqueues,timeline,provider-playback"
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/devices":
+    get:
+      tags:
+        - Server
+      summary: Get Devices
+      description: Get Devices
+      operationId: getDevices
+      responses:
+        "200":
+          description: Devices
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: number
+                        example: 151
+                      identifier:
+                        type: string
+                        example: com.plexapp.system.devices
+                      Device:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: number
+                              example: 1
+                            name:
+                              type: string
+                              example: iPhone
+                            platform:
+                              type: string
+                              example: iOS
+                            clientIdentifier:
+                              type: string
+                            createdAt:
+                              type: number
+                              example: 1654131230
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/geoip":
+    get:
+      servers:
+        - url: "https://plex.tv/api/v2"
+      security: []
+      tags:
+        - Plex
+      summary: Get Geo Data
+      description: Returns the geolocation and locale data of the caller
+      operationId: getGeoData
+      responses:
+        "200":
+          description: Gets the geo location data of the user
+          content:
+            application/json:
+              schema:
+                title: GeoData
+                type: object
+                description: Geo location data
+                examples:
+                  - code: VI
+                    continent_code: NA
+                    country: United States Virgin Islands
+                    city: Amsterdam
+                    european_union_member: true
+                    time_zone: America/St_Thomas
+                    postal_code: 802
+                    in_privacy_restricted_country: true
+                    in_privacy_restricted_region: true
+                    subdivisions: Saint Thomas
+                    coordinates: "18.3381, -64.8941"
+                required:
+                  - code
+                  - continent_code
+                  - country
+                  - city
+                  - european_union_member
+                  - time_zone
+                  - postal_code
+                  - in_privacy_restricted_country
+                  - in_privacy_restricted_region
+                  - subdivisions
+                  - coordinates
+                properties:
+                  code:
+                    type: string
+                    description: The ISO 3166-1 alpha-2 code of the country.
+                    example: VI
+                  continent_code:
+                    type: string
+                    description: The continent code where the country is located.
+                    example: NA
+                  country:
+                    type: string
+                    description: The official name of the country.
+                    example: United States Virgin Islands
+                  city:
+                    type: string
+                    description: The name of the city.
+                    example: Amsterdam
+                  european_union_member:
+                    type: boolean
+                    description: Indicates if the country is a member of the European Union.
+                    example: true
+                    default: false
+                  time_zone:
+                    type: string
+                    description: The time zone of the country.
+                    example: America/St_Thomas
+                  postal_code:
+                    type: string
+                    description: The postal code of the location.
+                    example: "802"
+                  in_privacy_restricted_country:
+                    type: boolean
+                    description: Indicates if the country has privacy restrictions.
+                    example: true
+                    default: false
+                  in_privacy_restricted_region:
+                    type: boolean
+                    description: Indicates if the region has privacy restrictions.
+                    example: true
+                    default: false
+                  subdivisions:
+                    type: string
+                    description: The name of the primary administrative subdivision.
+                    example: Saint Thomas
+                  coordinates:
+                    type: string
+                    description: "The geographical coordinates (latitude, longitude) of the location."
+                    example: "18.3381, -64.8941"
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/identity":
+    get:
+      tags:
+        - Server
+      summary: Get Server Identity
+      description: This request is useful to determine if the server is online or offline
+      operationId: get-server-identity
+      security: []
+      responses:
+        "200":
+          description: The Server Identity information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: number
+                        example: 0
+                      claimed:
+                        type: boolean
+                      machineIdentifier:
+                        type: string
+                      version:
+                        type: string
+        "408":
+          description: Request Timeout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: integer
+                    format: int32
+                    example: 408
+                  message:
+                    type: string
+                    example: The server timed out waiting for the request.
+  "/library/sections":
+    get:
+      tags:
+        - Library
+      summary: Get Media Libraries
+      description: Get a list of all media libraries on the Plex server.
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+                        description: Number of media libraries
+                      Directory:
+                        type: array
+                        description: List of media libraries
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                              description: Unique key for the library
+                            title:
+                              type: string
+                              description: Library title
+                            type:
+                              type: string
+                              description: Type of media (e.g., movie, show, music)
+                            agent:
+                              type: string
+                              description: Metadata agent used for the library
+                            scanner:
+                              type: string
+                              description: Scanner used to detect media
+        "401":
+          description: Unauthorized. Invalid or missing Plex token.
+        "500":
+          description: Server error.
+  "/library/sections/{libraryKey}/all":
+    get:
+      tags:
+        - Library
+      summary: Get All Media in a Library
+      description: Get a list of all media in a specified library.
+      parameters:
+        - name: libraryKey
+          in: path
+          required: true
+          description: Key for the media library
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+                        description: Number of media items in the library
+                      Metadata:
+                        type: array
+                        description: List of media items
+                        items:
+                          type: object
+                          properties:
+                            title:
+                              type: string
+                              description: Title of the media item
+                            type:
+                              type: string
+                              description: Media type (e.g., movie, episode, track)
+                            duration:
+                              type: integer
+                              description: Duration of the media item in milliseconds
+                            ratingKey:
+                              type: string
+                              description: Unique rating key for the item
+                            summary:
+                              type: string
+                              description: Description or summary of the media item
+        "404":
+          description: Library not found
+        "401":
+          description: Unauthorized. Invalid or missing Plex token.
+        "500":
+          description: Server error.
+  "/statistics/media":
+    get:
+      tags:
+        - Statistics
+      summary: Get Media Statistics
+      description: This will return the media statistics for the server
+      operationId: getStatistics
+      parameters:
+        - name: Timespan
+          description: |
+            The timespan to retrieve statistics for
+            the exact meaning of this parameter is not known
+          in: query
+          schema:
+            type: integer
+          required: false
+          example: 4
+      responses:
+        "200":
+          description: Media Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+                        format: int32
+                        example: 5497
+                      Device:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              format: int32
+                              example: 208
+                            name:
+                              type: string
+                              example: Roku Express
+                            platform:
+                              type: string
+                              example: Roku
+                            clientIdentifier:
+                              type: string
+                              example: 793095d235660625108ef785cc7646e9
+                            createdAt:
+                              type: integer
+                              format: int32
+                              example: 1706470556
+                      Account:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              format: int32
+                              example: 238960586
+                            key:
+                              type: string
+                              example: /accounts/238960586
+                            name:
+                              type: string
+                              example: Diane
+                            defaultAudioLanguage:
+                              type: string
+                              example: en
+                            autoSelectAudio:
+                              type: boolean
+                              example: true
+                            defaultSubtitleLanguage:
+                              type: string
+                              example: en
+                            subtitleMode:
+                              type: integer
+                              format: int32
+                              example: 1
+                            thumb:
+                              type: string
+                              example: "https://plex.tv/users/50d83634246da1de/avatar?c=1707110967"
+                      StatisticsMedia:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            accountID:
+                              type: integer
+                              format: int32
+                              example: 1
+                            deviceID:
+                              type: integer
+                              format: int32
+                              example: 13
+                            timespan:
+                              type: integer
+                              format: int32
+                              example: 4
+                            at:
+                              type: integer
+                              format: int32
+                              example: 1707141600
+                            metadataType:
+                              type: integer
+                              format: int32
+                              example: 4
+                            count:
+                              type: integer
+                              format: int32
+                              example: 1
+                            duration:
+                              type: integer
+                              format: int32
+                              example: 1555
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/statistics/resources":
+    get:
+      tags:
+        - Statistics
+      summary: Get Resources Statistics
+      description: This will return the resources for the server
+      operationId: getResourcesStatistics
+      parameters:
+        - name: Timespan
+          description: |
+            The timespan to retrieve statistics for
+            the exact meaning of this parameter is not known
+          in: query
+          schema:
+            type: integer
+          required: false
+          example: 4
+      responses:
+        "200":
+          description: Resource Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: long
+                      StatisticsResources:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            timespan:
+                              type: integer
+                              example: 6
+                            at:
+                              type: integer
+                              example: 1718384427
+                            hostCpuUtilization:
+                              type: number
+                              format: float
+                              example: 1.276
+                            processCpuUtilization:
+                              type: number
+                              format: float
+                              example: 0.025
+                            hostMemoryUtilization:
+                              type: number
+                              format: float
+                              example: 17.026
+                            processMemoryUtilization:
+                              type: number
+                              format: float
+                              example: 0.493
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/statistics/bandwidth":
+    get:
+      tags:
+        - Statistics
+      summary: Get Bandwidth Statistics
+      description: This will return the bandwidth statistics for the server
+      operationId: getBandwidthStatistics
+      parameters:
+        - name: Timespan
+          description: |
+            The timespan to retrieve statistics for
+            the exact meaning of this parameter is not known
+          in: query
+          schema:
+            type: integer
+          required: false
+          example: 4
+      responses:
+        "200":
+          description: Bandwidth Statistics
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: long
+                      Device:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              format: int32
+                              example: 208
+                            name:
+                              type: string
+                              example: Roku Express
+                            platform:
+                              type: string
+                              example: Roku
+                            clientIdentifier:
+                              type: string
+                              example: 793095d235660625108ef785cc7646e9
+                            createdAt:
+                              type: integer
+                              format: int32
+                              example: 1706470556
+                      Account:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              format: int32
+                              example: 238960586
+                            key:
+                              type: string
+                              example: /accounts/238960586
+                            name:
+                              type: string
+                              example: Diane
+                            defaultAudioLanguage:
+                              type: string
+                              example: en
+                            autoSelectAudio:
+                              type: boolean
+                              example: true
+                            defaultSubtitleLanguage:
+                              type: string
+                              example: en
+                            subtitleMode:
+                              type: integer
+                              format: int32
+                              example: 1
+                            thumb:
+                              type: string
+                              example: "https://plex.tv/users/50d83634246da1de/avatar?c=1707110967"
+                      StatisticsBandwidth:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            accountID:
+                              type: integer
+                              format: int32
+                              example: 238960586
+                            deviceID:
+                              type: integer
+                              format: int32
+                              example: 208
+                            timespan:
+                              type: integer
+                              example: 6
+                            at:
+                              type: integer
+                              format: int32
+                              example: 1718387650
+                            lan:
+                              type: boolean
+                              example: true
+                            bytes:
+                              type: long
+                              example: 22
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/status/sessions":
+    get:
+      tags:
+        - Sessions
+      summary: Get Active Sessions
+      description: Get information about currently active media sessions.
+      operationId: getSessions
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: long
+                      Metadata:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            addedAt:
+                              type: integer
+                            art:
+                              type: string
+                            audienceRating:
+                              type: number
+                            audienceRatingImage:
+                              type: string
+                            chapterSource:
+                              type: string
+                            contentRating:
+                              type: string
+                            duration:
+                              type: integer
+                            guid:
+                              type: string
+                            key:
+                              type: string
+                            librarySectionID:
+                              type: string
+                            librarySectionKey:
+                              type: string
+                            librarySectionTitle:
+                              type: string
+                            originallyAvailableAt:
+                              type: string
+                            ratingKey:
+                              type: string
+                            sessionKey:
+                              type: string
+                            slug:
+                              type: string
+                            studio:
+                              type: string
+                            summary:
+                              type: string
+                            tagline:
+                              type: string
+                            thumb:
+                              type: string
+                            title:
+                              type: string
+                            type:
+                              type: string
+                            updatedAt:
+                              type: integer
+                            viewOffset:
+                              type: integer
+                            year:
+                              type: integer
+                            Media:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  aspectRatio:
+                                    type: string
+                                  audioChannels:
+                                    type: integer
+                                  audioCodec:
+                                    type: string
+                                  bitrate:
+                                    type: integer
+                                  container:
+                                    type: string
+                                  duration:
+                                    type: integer
+                                  height:
+                                    type: integer
+                                  id:
+                                    type: string
+                                  videoCodec:
+                                    type: string
+                                  videoFrameRate:
+                                    type: string
+                                  videoProfile:
+                                    type: string
+                                  videoResolution:
+                                    type: string
+                                  width:
+                                    type: integer
+                                  selected:
+                                    type: boolean
+                                  Part:
+                                    type: array
+                                    items:
+                                      type: object
+                                      properties:
+                                        container:
+                                          type: string
+                                        duration:
+                                          type: integer
+                                        file:
+                                          type: string
+                                        id:
+                                          type: string
+                                        key:
+                                          type: string
+                                        size:
+                                          type: long
+                                        videoProfile:
+                                          type: string
+                                        decision:
+                                          type: string
+                                        selected:
+                                          type: boolean
+                                        Stream:
+                                          type: array
+                                          items:
+                                            type: object
+                                            properties:
+                                              bitDepth:
+                                                type: integer
+                                              bitrate:
+                                                type: integer
+                                              chromaLocation:
+                                                type: string
+                                              chromaSubsampling:
+                                                type: string
+                                              codec:
+                                                type: string
+                                              codedHeight:
+                                                type: integer
+                                              codedWidth:
+                                                type: integer
+                                              colorPrimaries:
+                                                type: string
+                                              colorRange:
+                                                type: string
+                                              colorSpace:
+                                                type: string
+                                              colorTrc:
+                                                type: string
+                                              default:
+                                                type: boolean
+                                              displayTitle:
+                                                type: string
+                                              extendedDisplayTitle:
+                                                type: string
+                                              frameRate:
+                                                type: number
+                                              height:
+                                                type: integer
+                                              id:
+                                                type: string
+                                              index:
+                                                type: integer
+                                              language:
+                                                type: string
+                                              languageCode:
+                                                type: string
+                                              languageTag:
+                                                type: string
+                                              level:
+                                                type: integer
+                                              original:
+                                                type: boolean
+                                              profile:
+                                                type: string
+                                              refFrames:
+                                                type: integer
+                                              scanType:
+                                                type: string
+                                              streamType:
+                                                type: integer
+                                              title:
+                                                type: string
+                                              width:
+                                                type: integer
+                                              location:
+                                                type: string
+                                              audioChannelLayout:
+                                                type: string
+                                              channels:
+                                                type: integer
+                                              samplingRate:
+                                                type: integer
+                                              selected:
+                                                type: boolean
+                            UltraBlurColors:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  bottomLeft:
+                                    type: string
+                                  bottomRight:
+                                    type: string
+                                  topLeft:
+                                    type: string
+                                  topRight:
+                                    type: string
+                            Genre:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  tag:
+                                    type: string
+                            Country:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  tag:
+                                    type: string
+                            Rating:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  image:
+                                    type: string
+                                  type:
+                                    type: string
+                                  value:
+                                    type: string
+                            Director:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  tag:
+                                    type: string
+                                  tagKey:
+                                    type: string
+                                  thumb:
+                                    type: string
+                            Writer:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  tag:
+                                    type: string
+                                  tagKey:
+                                    type: string
+                            Role:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  role:
+                                    type: string
+                                  tag:
+                                    type: string
+                                  tagKey:
+                                    type: string
+                                  thumb:
+                                    type: string
+                            Producer:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  count:
+                                    type: integer
+                                  filter:
+                                    type: string
+                                  id:
+                                    type: string
+                                  tag:
+                                    type: string
+                                  tagKey:
+                                    type: string
+                                  thumb:
+                                    type: string
+                            Field:
+                              type: array
+                              items:
+                                type: object
+                                properties:
+                                  locked:
+                                    type: boolean
+                                  name:
+                                    type: string
+                            User:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                thumb:
+                                  type: string
+                                title:
+                                  type: string
+                            Player:
+                              type: object
+                              properties:
+                                address:
+                                  type: string
+                                device:
+                                  type: string
+                                machineIdentifier:
+                                  type: string
+                                model:
+                                  type: string
+                                platform:
+                                  type: string
+                                platformVersion:
+                                  type: string
+                                product:
+                                  type: string
+                                remotePublicAddress:
+                                  type: string
+                                state:
+                                  type: string
+                                title:
+                                  type: string
+                                vendor:
+                                  type: string
+                                version:
+                                  type: string
+                                local:
+                                  type: boolean
+                                relayed:
+                                  type: boolean
+                                secure:
+                                  type: boolean
+                                userID:
+                                  type: integer
+                            Session:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                bandwidth:
+                                  type: integer
+                                location:
+                                  type: string
+        "401":
+          description: Unauthorized. Invalid or missing Plex token.
+        "500":
+          description: Server error.
+  "/status/sessions/history/all":
+    get:
+      tags:
+        - Sessions
+      summary: Get Session History
+      description: This will Retrieve a listing of all history views.
+      operationId: getSessionHistory
+      parameters:
+        - name: sort
+          description: |
+            Sorts the results by the specified field followed by the direction (asc, desc)
+          in: query
+          schema:
+            type: string
+          required: false
+          examples:
+            viewed-at-descending:
+              value: "viewedAt:desc"
+            viewed-at-ascending:
+              value: "viewedAt:asc"
+            rating-descending:
+              value: "rating:desc"
+            rating-ascending:
+              value: "rating:asc"
+        - name: accountId
+          description: |
+            Filter results by those that are related to a specific users id
+          in: query
+          schema:
+            type: integer
+          required: false
+          example: 1
+        - name: filter
+          description: |
+            Filters content by field and direction/equality
+            (Unknown if viewedAt is the only supported column)
+          in: query
+          schema:
+            type: object
+            pattern: "^[A-Za-z][A-Za-z0-9]*[>=<]{0,2}$"
+            example:
+              viewed-at-greater-than:
+                value: viewedAt>
+              viewed-at-greater-than-or-equal-to:
+                value: viewedAt>=>
+              viewed-at-less-than:
+                value: viewedAt<
+          required: false
+          examples:
+            ViewedAt:
+              value: viewedAt>=1704862818
+        - name: librarySectionID
+          description: |
+            Filters the results based on the id of a valid library section
+          in: query
+          schema:
+            type: integer
+          required: false
+          example: 12
+      responses:
+        "200":
+          description: List of Plex Sessions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: long
+                      Metadata:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            historyKey:
+                              type: string
+                              example: /status/sessions/history/1
+                            key:
+                              type: string
+                              example: /library/metadata/32171
+                            ratingKey:
+                              type: string
+                              example: "32171"
+                            librarySectionID:
+                              type: string
+                              example: "2"
+                            parentKey:
+                              type: string
+                              example: /library/metadata/32170
+                            grandparentKey:
+                              type: string
+                              example: /library/metadata/32132
+                            title:
+                              type: string
+                              example: The Noise That Blue Makes
+                            grandparentTitle:
+                              type: string
+                              example: Taskmaster
+                            type:
+                              type: string
+                              example: episode
+                            thumb:
+                              type: string
+                              example: /library/metadata/32171/thumb/-1
+                            parentThumb:
+                              type: string
+                              example: /library/metadata/32170/thumb/1654134301
+                            grandparentThumb:
+                              type: string
+                              example: /library/metadata/32132/thumb/1703933346
+                            grandparentArt:
+                              type: string
+                              example: /library/metadata/32132/art/1703933346
+                            index:
+                              type: integer
+                              format: int32
+                              example: 1
+                            parentIndex:
+                              type: integer
+                              format: int32
+                              example: 13
+                            originallyAvailableAt:
+                              type: string
+                              format: date
+                              example: 2022-04-14T00:00:00.000Z
+                            viewedAt:
+                              type: integer
+                              format: int32
+                              example: 1654139223
+                            accountID:
+                              type: integer
+                              format: int32
+                              example: 1
+                            deviceID:
+                              type: integer
+                              format: int32
+                              example: 5
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
+  "/transcode/sessions":
+    get:
+      tags:
+        - Sessions
+      summary: Get Transcode Sessions
+      description: Get Transcode Sessions
+      operationId: getTranscodeSessions
+      responses:
+        "200":
+          description: The Transcode Sessions
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: long
+                      TranscodeSession:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            key:
+                              type: string
+                              example: vv3i2q2lax92qlzul1hbd4bx
+                            throttled:
+                              type: boolean
+                              example: false
+                            complete:
+                              type: boolean
+                              example: false
+                            progress:
+                              type: number
+                              example: 1.7999999523162842
+                            size:
+                              type: long
+                            speed:
+                              type: number
+                              example: 25.100000381469727
+                            error:
+                              type: boolean
+                              example: false
+                            duration:
+                              type: integer
+                              format: int32
+                              example: 1445695
+                            remaining:
+                              type: integer
+                              format: int32
+                              example: 53
+                            context:
+                              type: string
+                              example: streaming
+                            sourceVideoCodec:
+                              type: string
+                              example: h264
+                            sourceAudioCodec:
+                              type: string
+                              example: aac
+                            videoDecision:
+                              type: string
+                              example: transcode
+                            audioDecision:
+                              type: string
+                              example: transcode
+                            subtitleDecision:
+                              type: string
+                              example: burn
+                            protocol:
+                              type: string
+                              example: http
+                            container:
+                              type: string
+                              example: mkv
+                            videoCodec:
+                              type: string
+                              example: h264
+                            audioCodec:
+                              type: string
+                              example: opus
+                            audioChannels:
+                              type: integer
+                              format: int32
+                              example: 1
+                            transcodeHwRequested:
+                              type: boolean
+                              example: true
+                            timeStamp:
+                              type: number
+                              example: 1705895805.4919229
+                            maxOffsetAvailable:
+                              type: number
+                              example: 29.53
+                            minOffsetAvailable:
+                              type: number
+                              example: 3.003000020980835
+                        example:
+                          - key: vv3i2q2lax92qlzul1hbd4bx
+                            throttled: false
+                            complete: false
+                            progress: 1.7999999523162842
+                            size: -22
+                            speed: 25.100000381469727
+                            error: false
+                            duration: 1445695
+                            remaining: 53
+                            context: streaming
+                            sourceVideoCodec: h264
+                            sourceAudioCodec: aac
+                            videoDecision: transcode
+                            audioDecision: transcode
+                            subtitleDecision: burn
+                            protocol: http
+                            container: mkv
+                            videoCodec: h264
+                            audioCodec: opus
+                            audioChannels: 1
+                            transcodeHwRequested: true
+                            timeStamp: 1705895805.4919229
+                            maxOffsetAvailable: 29.53
+                            minOffsetAvailable: 3.003000020980835
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+
+components:
+  securitySchemes:
+    PlexAuth:
+      type: apiKey
+      in: query
+      name: X-Plex-Token
+      description: Token required to authenticate API requests to Plex.
+
+security:
+  - PlexAuth: []
