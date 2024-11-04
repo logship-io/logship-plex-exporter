@@ -670,12 +670,12 @@ components:
     getSessions_200_response_MediaContainer_Metadata_inner_Genre_inner:
       example:
         filter: filter
-        count: 6
+        count: count
         id: id
         tag: tag
       properties:
         count:
-          type: integer
+          type: string
         filter:
           type: string
         id:
@@ -1077,13 +1077,13 @@ components:
       example:
         filter: filter
         thumb: thumb
-        count: 2
+        count: count
         id: id
         tag: tag
         tagKey: tagKey
       properties:
         count:
-          type: integer
+          type: string
         filter:
           type: string
         id:
@@ -1123,7 +1123,7 @@ components:
           type: string
     getSessions_200_response_MediaContainer_Metadata_inner_Session:
       example:
-        bandwidth: 6
+        bandwidth: 3
         location: location
         id: id
       properties:
@@ -1703,12 +1703,12 @@ components:
     getSessions_200_response_MediaContainer_Metadata_inner_Rating_inner:
       example:
         image: image
-        count: 3
+        count: count
         type: type
         value: value
       properties:
         count:
-          type: integer
+          type: string
         image:
           type: string
         type:
@@ -2101,11 +2101,11 @@ components:
           year: 2
           Rating:
           - image: image
-            count: 3
+            count: count
             type: type
             value: value
           - image: image
-            count: 3
+            count: count
             type: type
             value: value
           ratingKey: ratingKey
@@ -2511,27 +2511,27 @@ components:
           - filter: filter
             role: role
             thumb: thumb
-            count: 1
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
             role: role
             thumb: thumb
-            count: 1
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           Producer:
           - filter: filter
             thumb: thumb
-            count: 2
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
             thumb: thumb
-            count: 2
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
@@ -2540,21 +2540,21 @@ components:
           tagline: tagline
           Country:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           contentRating: contentRating
           Genre:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           chapterSource: chapterSource
@@ -2562,17 +2562,17 @@ components:
           audienceRatingImage: audienceRatingImage
           Writer:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           Session:
-            bandwidth: 6
+            bandwidth: 3
             location: location
             id: id
         - studio: studio
@@ -2585,11 +2585,11 @@ components:
           year: 2
           Rating:
           - image: image
-            count: 3
+            count: count
             type: type
             value: value
           - image: image
-            count: 3
+            count: count
             type: type
             value: value
           ratingKey: ratingKey
@@ -2995,27 +2995,27 @@ components:
           - filter: filter
             role: role
             thumb: thumb
-            count: 1
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
             role: role
             thumb: thumb
-            count: 1
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           Producer:
           - filter: filter
             thumb: thumb
-            count: 2
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
             thumb: thumb
-            count: 2
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
@@ -3024,21 +3024,21 @@ components:
           tagline: tagline
           Country:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           contentRating: contentRating
           Genre:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
           chapterSource: chapterSource
@@ -3046,17 +3046,17 @@ components:
           audienceRatingImage: audienceRatingImage
           Writer:
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           - filter: filter
-            count: 6
+            count: count
             id: id
             tag: tag
             tagKey: tagKey
           Session:
-            bandwidth: 6
+            bandwidth: 3
             location: location
             id: id
       properties:
@@ -3078,11 +3078,11 @@ components:
         year: 2
         Rating:
         - image: image
-          count: 3
+          count: count
           type: type
           value: value
         - image: image
-          count: 3
+          count: count
           type: type
           value: value
         ratingKey: ratingKey
@@ -3488,27 +3488,27 @@ components:
         - filter: filter
           role: role
           thumb: thumb
-          count: 1
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
         - filter: filter
           role: role
           thumb: thumb
-          count: 1
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
         Producer:
         - filter: filter
           thumb: thumb
-          count: 2
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
         - filter: filter
           thumb: thumb
-          count: 2
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
@@ -3517,21 +3517,21 @@ components:
         tagline: tagline
         Country:
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
         contentRating: contentRating
         Genre:
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
         chapterSource: chapterSource
@@ -3539,17 +3539,17 @@ components:
         audienceRatingImage: audienceRatingImage
         Writer:
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
         - filter: filter
-          count: 6
+          count: count
           id: id
           tag: tag
           tagKey: tagKey
         Session:
-          bandwidth: 6
+          bandwidth: 3
           location: location
           id: id
       properties:
@@ -3984,13 +3984,13 @@ components:
         filter: filter
         role: role
         thumb: thumb
-        count: 1
+        count: count
         id: id
         tag: tag
         tagKey: tagKey
       properties:
         count:
-          type: integer
+          type: string
         filter:
           type: string
         id:
@@ -4040,13 +4040,13 @@ components:
     getSessions_200_response_MediaContainer_Metadata_inner_Writer_inner:
       example:
         filter: filter
-        count: 6
+        count: count
         id: id
         tag: tag
         tagKey: tagKey
       properties:
         count:
-          type: integer
+          type: string
         filter:
           type: string
         id:
@@ -4070,11 +4070,11 @@ components:
             year: 2
             Rating:
             - image: image
-              count: 3
+              count: count
               type: type
               value: value
             - image: image
-              count: 3
+              count: count
               type: type
               value: value
             ratingKey: ratingKey
@@ -4480,27 +4480,27 @@ components:
             - filter: filter
               role: role
               thumb: thumb
-              count: 1
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
               role: role
               thumb: thumb
-              count: 1
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             Producer:
             - filter: filter
               thumb: thumb
-              count: 2
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
               thumb: thumb
-              count: 2
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
@@ -4509,21 +4509,21 @@ components:
             tagline: tagline
             Country:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             contentRating: contentRating
             Genre:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             chapterSource: chapterSource
@@ -4531,17 +4531,17 @@ components:
             audienceRatingImage: audienceRatingImage
             Writer:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             Session:
-              bandwidth: 6
+              bandwidth: 3
               location: location
               id: id
           - studio: studio
@@ -4554,11 +4554,11 @@ components:
             year: 2
             Rating:
             - image: image
-              count: 3
+              count: count
               type: type
               value: value
             - image: image
-              count: 3
+              count: count
               type: type
               value: value
             ratingKey: ratingKey
@@ -4964,27 +4964,27 @@ components:
             - filter: filter
               role: role
               thumb: thumb
-              count: 1
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
               role: role
               thumb: thumb
-              count: 1
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             Producer:
             - filter: filter
               thumb: thumb
-              count: 2
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
               thumb: thumb
-              count: 2
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
@@ -4993,21 +4993,21 @@ components:
             tagline: tagline
             Country:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             contentRating: contentRating
             Genre:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
             chapterSource: chapterSource
@@ -5015,17 +5015,17 @@ components:
             audienceRatingImage: audienceRatingImage
             Writer:
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             - filter: filter
-              count: 6
+              count: count
               id: id
               tag: tag
               tagKey: tagKey
             Session:
-              bandwidth: 6
+              bandwidth: 3
               location: location
               id: id
       properties:

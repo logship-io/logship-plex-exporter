@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | **int** |  | [optional] 
+**Count** | **string** |  | [optional] 
 **Filter** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] 
 **Tag** | **string** |  | [optional] 

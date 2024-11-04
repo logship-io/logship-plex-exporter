@@ -172,7 +172,7 @@ Authentication schemes defined for the API:
 - packageCompany: OpenAPI
 - packageCopyright: No Copyright
 - packageDescription: A library generated from a OpenAPI doc
-- packageGuid: {D9095E32-C9B3-448B-A8EB-DF9313F55972}
+- packageGuid: {320CDC8A-799F-48EB-82EA-C09ABEADD44E}
 - packageName: Logship.Plex.OpenApi
 - packageTags: 
 - packageTitle: OpenAPI Library

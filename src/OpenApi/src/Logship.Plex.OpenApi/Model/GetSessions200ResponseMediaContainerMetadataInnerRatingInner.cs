@@ -39,7 +39,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <param name="type">type</param>
         /// <param name="value">value</param>
         [JsonConstructor]
-        public GetSessions200ResponseMediaContainerMetadataInnerRatingInner(Option<int?> count = default, Option<string?> image = default, Option<string?> type = default, Option<string?> value = default)
+        public GetSessions200ResponseMediaContainerMetadataInnerRatingInner(Option<string?> count = default, Option<string?> image = default, Option<string?> type = default, Option<string?> value = default)
         {
             CountOption = count;
             ImageOption = image;
@@ -55,13 +55,13 @@ namespace Logship.Plex.OpenApi.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CountOption { get; private set; }
+        public Option<string?> CountOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Count
         /// </summary>
         [JsonPropertyName("count")]
-        public int? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
+        public string? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Image
@@ -151,7 +151,7 @@ namespace Logship.Plex.OpenApi.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> count = default;
+            Option<string?> count = default;
             Option<string?> image = default;
             Option<string?> type = default;
             Option<string?> value = default;
@@ -172,8 +172,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "count":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                count = new Option<int?>(utf8JsonReader.GetInt32());
+                            count = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "image":
                             image = new Option<string?>(utf8JsonReader.GetString()!);
@@ -229,6 +228,9 @@ namespace Logship.Plex.OpenApi.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GetSessions200ResponseMediaContainerMetadataInnerRatingInner getSessions200ResponseMediaContainerMetadataInnerRatingInner, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (getSessions200ResponseMediaContainerMetadataInnerRatingInner.CountOption.IsSet && getSessions200ResponseMediaContainerMetadataInnerRatingInner.Count == null)
+                throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerRatingInner.Count), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerRatingInner.");
+
             if (getSessions200ResponseMediaContainerMetadataInnerRatingInner.ImageOption.IsSet && getSessions200ResponseMediaContainerMetadataInnerRatingInner.Image == null)
                 throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerRatingInner.Image), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerRatingInner.");
 
@@ -239,7 +241,7 @@ namespace Logship.Plex.OpenApi.Model
                 throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerRatingInner.Value), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerRatingInner.");
 
             if (getSessions200ResponseMediaContainerMetadataInnerRatingInner.CountOption.IsSet)
-                writer.WriteNumber("count", getSessions200ResponseMediaContainerMetadataInnerRatingInner.CountOption.Value!.Value);
+                writer.WriteString("count", getSessions200ResponseMediaContainerMetadataInnerRatingInner.Count);
 
             if (getSessions200ResponseMediaContainerMetadataInnerRatingInner.ImageOption.IsSet)
                 writer.WriteString("image", getSessions200ResponseMediaContainerMetadataInnerRatingInner.Image);

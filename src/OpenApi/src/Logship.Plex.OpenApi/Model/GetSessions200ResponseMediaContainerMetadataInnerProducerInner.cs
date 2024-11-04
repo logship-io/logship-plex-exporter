@@ -41,7 +41,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <param name="tagKey">tagKey</param>
         /// <param name="thumb">thumb</param>
         [JsonConstructor]
-        public GetSessions200ResponseMediaContainerMetadataInnerProducerInner(Option<int?> count = default, Option<string?> filter = default, Option<string?> id = default, Option<string?> tag = default, Option<string?> tagKey = default, Option<string?> thumb = default)
+        public GetSessions200ResponseMediaContainerMetadataInnerProducerInner(Option<string?> count = default, Option<string?> filter = default, Option<string?> id = default, Option<string?> tag = default, Option<string?> tagKey = default, Option<string?> thumb = default)
         {
             CountOption = count;
             FilterOption = filter;
@@ -59,13 +59,13 @@ namespace Logship.Plex.OpenApi.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<int?> CountOption { get; private set; }
+        public Option<string?> CountOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Count
         /// </summary>
         [JsonPropertyName("count")]
-        public int? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
+        public string? Count { get { return this.CountOption; } set { this.CountOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Filter
@@ -183,7 +183,7 @@ namespace Logship.Plex.OpenApi.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<int?> count = default;
+            Option<string?> count = default;
             Option<string?> filter = default;
             Option<string?> id = default;
             Option<string?> tag = default;
@@ -206,8 +206,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "count":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                count = new Option<int?>(utf8JsonReader.GetInt32());
+                            count = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "filter":
                             filter = new Option<string?>(utf8JsonReader.GetString()!);
@@ -275,6 +274,9 @@ namespace Logship.Plex.OpenApi.Model
         /// <exception cref="NotImplementedException"></exception>
         public void WriteProperties(Utf8JsonWriter writer, GetSessions200ResponseMediaContainerMetadataInnerProducerInner getSessions200ResponseMediaContainerMetadataInnerProducerInner, JsonSerializerOptions jsonSerializerOptions)
         {
+            if (getSessions200ResponseMediaContainerMetadataInnerProducerInner.CountOption.IsSet && getSessions200ResponseMediaContainerMetadataInnerProducerInner.Count == null)
+                throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerProducerInner.Count), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerProducerInner.");
+
             if (getSessions200ResponseMediaContainerMetadataInnerProducerInner.FilterOption.IsSet && getSessions200ResponseMediaContainerMetadataInnerProducerInner.Filter == null)
                 throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerProducerInner.Filter), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerProducerInner.");
 
@@ -291,7 +293,7 @@ namespace Logship.Plex.OpenApi.Model
                 throw new ArgumentNullException(nameof(getSessions200ResponseMediaContainerMetadataInnerProducerInner.Thumb), "Property is required for class GetSessions200ResponseMediaContainerMetadataInnerProducerInner.");
 
             if (getSessions200ResponseMediaContainerMetadataInnerProducerInner.CountOption.IsSet)
-                writer.WriteNumber("count", getSessions200ResponseMediaContainerMetadataInnerProducerInner.CountOption.Value!.Value);
+                writer.WriteString("count", getSessions200ResponseMediaContainerMetadataInnerProducerInner.Count);
 
             if (getSessions200ResponseMediaContainerMetadataInnerProducerInner.FilterOption.IsSet)
                 writer.WriteString("filter", getSessions200ResponseMediaContainerMetadataInnerProducerInner.Filter);
