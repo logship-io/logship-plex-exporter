@@ -71,8 +71,10 @@ namespace Logship.Plex.Utility.Services
                             { "PlayerUserId", metadata.Player?.UserID },
                             { "PlayerVendor", metadata.Player?.Vendor },
                             { "PlayerVarVersion", metadata.Player?.VarVersion },
+                            { "SessionId", metadata.Session?.Id },
+                            { "SessionLocation", metadata.Session?.Location },
+                            { "SessionBandwidth", metadata.Session?.Bandwidth },
                         };
-
 
                         results.Add(new LogshipLogEntrySchema("Plex.Sessions.Video", timestamp, data));
                     }
