@@ -121,8 +121,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "errors":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                errors = new Option<List<GetServerCapabilities401ResponseErrorsInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities401ResponseErrorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            errors = new Option<List<GetServerCapabilities401ResponseErrorsInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities401ResponseErrorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

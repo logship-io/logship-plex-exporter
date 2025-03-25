@@ -13,7 +13,7 @@ namespace Logship.Plex.OpenApi.Client
         public Exception Exception { get; }
 
         /// <summary>
-        /// The ExcepetionEventArgs
+        /// The ExceptionEventArgs
         /// </summary>
         /// <param name="exception"></param>
         public ExceptionEventArgs(Exception exception)

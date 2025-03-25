@@ -26,6 +26,9 @@ docs/models/GetDevices200ResponseMediaContainerDeviceInner.md
 docs/models/GetResourcesStatistics200Response.md
 docs/models/GetResourcesStatistics200ResponseMediaContainer.md
 docs/models/GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner.md
+docs/models/GetServerAccounts200Response.md
+docs/models/GetServerAccounts200ResponseMediaContainer.md
+docs/models/GetServerAccounts200ResponseMediaContainerAccountInner.md
 docs/models/GetServerActivities200Response.md
 docs/models/GetServerActivities200ResponseMediaContainer.md
 docs/models/GetServerActivities200ResponseMediaContainerActivityInner.md
@@ -126,6 +129,9 @@ src/Logship.Plex.OpenApi/Model/GetDevices200ResponseMediaContainerDeviceInner.cs
 src/Logship.Plex.OpenApi/Model/GetResourcesStatistics200Response.cs
 src/Logship.Plex.OpenApi/Model/GetResourcesStatistics200ResponseMediaContainer.cs
 src/Logship.Plex.OpenApi/Model/GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner.cs
+src/Logship.Plex.OpenApi/Model/GetServerAccounts200Response.cs
+src/Logship.Plex.OpenApi/Model/GetServerAccounts200ResponseMediaContainer.cs
+src/Logship.Plex.OpenApi/Model/GetServerAccounts200ResponseMediaContainerAccountInner.cs
 src/Logship.Plex.OpenApi/Model/GetServerActivities200Response.cs
 src/Logship.Plex.OpenApi/Model/GetServerActivities200ResponseMediaContainer.cs
 src/Logship.Plex.OpenApi/Model/GetServerActivities200ResponseMediaContainerActivityInner.cs

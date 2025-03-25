@@ -971,44 +971,34 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "allowCameraUpload":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowCameraUpload = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowCameraUpload = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "allowChannelAccess":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowChannelAccess = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowChannelAccess = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "allowMediaDeletion":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowMediaDeletion = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowMediaDeletion = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "allowSharing":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowSharing = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowSharing = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "allowSync":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowSync = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowSync = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "allowTuners":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                allowTuners = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            allowTuners = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "backgroundProcessing":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                backgroundProcessing = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            backgroundProcessing = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "certificate":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                certificate = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            certificate = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "companionProxy":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                companionProxy = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            companionProxy = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "countryCode":
                             countryCode = new Option<string?>(utf8JsonReader.GetString()!);
@@ -1017,42 +1007,34 @@ namespace Logship.Plex.OpenApi.Model
                             diagnostics = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "eventStream":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                eventStream = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            eventStream = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "friendlyName":
                             friendlyName = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "hubSearch":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                hubSearch = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            hubSearch = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "itemClusters":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                itemClusters = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            itemClusters = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "livetv":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                livetv = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            livetv = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "machineIdentifier":
                             machineIdentifier = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "mediaProviders":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                mediaProviders = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            mediaProviders = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "multiuser":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                multiuser = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            multiuser = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "musicAnalysis":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                musicAnalysis = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            musicAnalysis = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "myPlex":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                myPlex = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            myPlex = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "myPlexMappingState":
                             myPlexMappingState = new Option<string?>(utf8JsonReader.GetString()!);
@@ -1061,22 +1043,19 @@ namespace Logship.Plex.OpenApi.Model
                             myPlexSigninState = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "myPlexSubscription":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                myPlexSubscription = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            myPlexSubscription = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "myPlexUsername":
                             myPlexUsername = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "offlineTranscode":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                offlineTranscode = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            offlineTranscode = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "ownerFeatures":
                             ownerFeatures = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "photoAutoTag":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                photoAutoTag = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            photoAutoTag = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "platform":
                             platform = new Option<string?>(utf8JsonReader.GetString()!);
@@ -1085,52 +1064,40 @@ namespace Logship.Plex.OpenApi.Model
                             platformVersion = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "pluginHost":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                pluginHost = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            pluginHost = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "pushNotifications":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                pushNotifications = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            pushNotifications = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "readOnlyLibraries":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                readOnlyLibraries = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            readOnlyLibraries = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "streamingBrainABRVersion":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                streamingBrainABRVersion = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            streamingBrainABRVersion = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "streamingBrainVersion":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                streamingBrainVersion = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            streamingBrainVersion = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "sync":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                sync = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            sync = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderActiveVideoSessions":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderActiveVideoSessions = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            transcoderActiveVideoSessions = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "transcoderAudio":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderAudio = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            transcoderAudio = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderLyrics":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderLyrics = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            transcoderLyrics = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderPhoto":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderPhoto = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            transcoderPhoto = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderSubtitles":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderSubtitles = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            transcoderSubtitles = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderVideo":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                transcoderVideo = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            transcoderVideo = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "transcoderVideoBitrates":
                             transcoderVideoBitrates = new Option<string?>(utf8JsonReader.GetString()!);
@@ -1142,23 +1109,19 @@ namespace Logship.Plex.OpenApi.Model
                             transcoderVideoResolutions = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "updatedAt":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                updatedAt = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            updatedAt = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "updater":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                updater = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            updater = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "version":
                             varVersion = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "voiceSearch":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                voiceSearch = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            voiceSearch = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "Directory":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                directory = new Option<List<GetServerCapabilities200ResponseMediaContainerDirectoryInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities200ResponseMediaContainerDirectoryInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            directory = new Option<List<GetServerCapabilities200ResponseMediaContainerDirectoryInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities200ResponseMediaContainerDirectoryInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

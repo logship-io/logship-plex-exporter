@@ -213,16 +213,13 @@ namespace Logship.Plex.OpenApi.Model
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "interval":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                interval = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            interval = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "scheduleRandomized":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                scheduleRandomized = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            scheduleRandomized = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "enabled":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                enabled = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            enabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "title":
                             title = new Option<string?>(utf8JsonReader.GetString()!);

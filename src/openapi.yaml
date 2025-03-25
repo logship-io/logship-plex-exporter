@@ -189,6 +189,107 @@ paths:
                           type: integer
                           format: int32
                           example: 401
+  "/accounts":
+    get:
+      tags:
+        - Server
+      summary: Get Server Accounts
+      description: Get Server Accounts
+      operationId: getServerAccounts
+      responses:
+        "200":
+          description: The Server Accounts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+                        example: 6
+                      identifier:
+                        type: string
+                        example: "com.plexapp.system.accounts"
+                      Account:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                              example: 1
+                            key:
+                              type: string
+                              example: "/accounts/1"
+                            name:
+                              type: string
+                              example: "shoeletz"
+                            defaultAudioLanguage:
+                              type: string
+                              example: "en"
+                            autoSelectAudio:
+                              type: boolean
+                              example: true
+                            defaultSubtitleLanguage:
+                              type: string
+                              example: "en"
+                            subtitleMode:
+                              type: integer
+                              example: 1
+                            thumb:
+                              type: string
+                              example: ""
+        "400":
+          description: "Bad Request - A parameter was not specified, or was specified incorrectly."
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1000
+                        message:
+                          type: string
+
+                          example: X-Plex-Client-Identifier is missing
+                        status:
+                          type: integer
+                          format: int32
+                          example: 400
+        "401":
+          description: Unauthorized - Returned if the X-Plex-Token is missing from the header or query.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          format: int32
+                          example: 1001
+                        message:
+                          type: string
+
+                          example: User could not be authenticated
+                        status:
+                          type: integer
+                          format: int32
+                          example: 401
   "/activities":
     get:
       tags:

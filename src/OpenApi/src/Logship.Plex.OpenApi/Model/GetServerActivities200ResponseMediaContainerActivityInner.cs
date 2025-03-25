@@ -246,12 +246,10 @@ namespace Logship.Plex.OpenApi.Model
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "cancellable":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                cancellable = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            cancellable = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "userID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                userID = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            userID = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "title":
                             title = new Option<string?>(utf8JsonReader.GetString()!);
@@ -260,12 +258,10 @@ namespace Logship.Plex.OpenApi.Model
                             subtitle = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "progress":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                progress = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            progress = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "Context":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                context = new Option<GetServerActivities200ResponseMediaContainerActivityInnerContext?>(JsonSerializer.Deserialize<GetServerActivities200ResponseMediaContainerActivityInnerContext>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            context = new Option<GetServerActivities200ResponseMediaContainerActivityInnerContext?>(JsonSerializer.Deserialize<GetServerActivities200ResponseMediaContainerActivityInnerContext>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

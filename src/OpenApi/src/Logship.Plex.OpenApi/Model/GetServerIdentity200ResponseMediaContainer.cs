@@ -173,12 +173,10 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "claimed":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                claimed = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            claimed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "machineIdentifier":
                             machineIdentifier = new Option<string?>(utf8JsonReader.GetString()!);

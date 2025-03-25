@@ -121,8 +121,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "MediaContainer":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                mediaContainer = new Option<GetDevices200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetDevices200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            mediaContainer = new Option<GetDevices200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetDevices200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

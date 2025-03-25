@@ -490,28 +490,22 @@ namespace Logship.Plex.OpenApi.Model
                             grandparentArt = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "index":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                index = new Option<int?>(utf8JsonReader.GetInt32());
+                            index = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "parentIndex":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                parentIndex = new Option<int?>(utf8JsonReader.GetInt32());
+                            parentIndex = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "originallyAvailableAt":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                originallyAvailableAt = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
+                            originallyAvailableAt = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "viewedAt":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                viewedAt = new Option<int?>(utf8JsonReader.GetInt32());
+                            viewedAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "accountID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                accountID = new Option<int?>(utf8JsonReader.GetInt32());
+                            accountID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "deviceID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                deviceID = new Option<int?>(utf8JsonReader.GetInt32());
+                            deviceID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

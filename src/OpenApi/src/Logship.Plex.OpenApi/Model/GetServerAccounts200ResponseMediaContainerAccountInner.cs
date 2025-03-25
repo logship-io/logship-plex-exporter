@@ -27,12 +27,12 @@ using Logship.Plex.OpenApi.Client;
 namespace Logship.Plex.OpenApi.Model
 {
     /// <summary>
-    /// GetStatistics200ResponseMediaContainerAccountInner
+    /// GetServerAccounts200ResponseMediaContainerAccountInner
     /// </summary>
-    public partial class GetStatistics200ResponseMediaContainerAccountInner : IValidatableObject
+    public partial class GetServerAccounts200ResponseMediaContainerAccountInner : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetStatistics200ResponseMediaContainerAccountInner" /> class.
+        /// Initializes a new instance of the <see cref="GetServerAccounts200ResponseMediaContainerAccountInner" /> class.
         /// </summary>
         /// <param name="id">id</param>
         /// <param name="key">key</param>
@@ -43,7 +43,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <param name="subtitleMode">subtitleMode</param>
         /// <param name="thumb">thumb</param>
         [JsonConstructor]
-        public GetStatistics200ResponseMediaContainerAccountInner(Option<int?> id = default, Option<string?> key = default, Option<string?> name = default, Option<string?> defaultAudioLanguage = default, Option<bool?> autoSelectAudio = default, Option<string?> defaultSubtitleLanguage = default, Option<int?> subtitleMode = default, Option<string?> thumb = default)
+        public GetServerAccounts200ResponseMediaContainerAccountInner(Option<int?> id = default, Option<string?> key = default, Option<string?> name = default, Option<string?> defaultAudioLanguage = default, Option<bool?> autoSelectAudio = default, Option<string?> defaultSubtitleLanguage = default, Option<int?> subtitleMode = default, Option<string?> thumb = default)
         {
             IdOption = id;
             KeyOption = key;
@@ -68,7 +68,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /* <example>238960586</example> */
+        /* <example>1</example> */
         [JsonPropertyName("id")]
         public int? Id { get { return this.IdOption; } set { this.IdOption = new(value); } }
 
@@ -82,7 +82,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        /* <example>/accounts/238960586</example> */
+        /* <example>/accounts/1</example> */
         [JsonPropertyName("key")]
         public string? Key { get { return this.KeyOption; } set { this.KeyOption = new(value); } }
 
@@ -96,7 +96,7 @@ namespace Logship.Plex.OpenApi.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /* <example>Diane</example> */
+        /* <example>shoeletz</example> */
         [JsonPropertyName("name")]
         public string? Name { get { return this.NameOption; } set { this.NameOption = new(value); } }
 
@@ -166,7 +166,6 @@ namespace Logship.Plex.OpenApi.Model
         /// <summary>
         /// Gets or Sets Thumb
         /// </summary>
-        /* <example>https://plex.tv/users/50d83634246da1de/avatar?c&#x3D;1707110967</example> */
         [JsonPropertyName("thumb")]
         public string? Thumb { get { return this.ThumbOption; } set { this.ThumbOption = new(value); } }
 
@@ -177,7 +176,7 @@ namespace Logship.Plex.OpenApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetStatistics200ResponseMediaContainerAccountInner {\n");
+            sb.Append("class GetServerAccounts200ResponseMediaContainerAccountInner {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -202,19 +201,19 @@ namespace Logship.Plex.OpenApi.Model
     }
 
     /// <summary>
-    /// A Json converter for type <see cref="GetStatistics200ResponseMediaContainerAccountInner" />
+    /// A Json converter for type <see cref="GetServerAccounts200ResponseMediaContainerAccountInner" />
     /// </summary>
-    public class GetStatistics200ResponseMediaContainerAccountInnerJsonConverter : JsonConverter<GetStatistics200ResponseMediaContainerAccountInner>
+    public class GetServerAccounts200ResponseMediaContainerAccountInnerJsonConverter : JsonConverter<GetServerAccounts200ResponseMediaContainerAccountInner>
     {
         /// <summary>
-        /// Deserializes json to <see cref="GetStatistics200ResponseMediaContainerAccountInner" />
+        /// Deserializes json to <see cref="GetServerAccounts200ResponseMediaContainerAccountInner" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
         /// <param name="typeToConvert"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <returns></returns>
         /// <exception cref="JsonException"></exception>
-        public override GetStatistics200ResponseMediaContainerAccountInner Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
+        public override GetServerAccounts200ResponseMediaContainerAccountInner Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
@@ -278,101 +277,101 @@ namespace Logship.Plex.OpenApi.Model
             }
 
             if (id.IsSet && id.Value == null)
-                throw new ArgumentNullException(nameof(id), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(id), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (key.IsSet && key.Value == null)
-                throw new ArgumentNullException(nameof(key), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(key), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (name.IsSet && name.Value == null)
-                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(name), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (defaultAudioLanguage.IsSet && defaultAudioLanguage.Value == null)
-                throw new ArgumentNullException(nameof(defaultAudioLanguage), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(defaultAudioLanguage), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (autoSelectAudio.IsSet && autoSelectAudio.Value == null)
-                throw new ArgumentNullException(nameof(autoSelectAudio), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(autoSelectAudio), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (defaultSubtitleLanguage.IsSet && defaultSubtitleLanguage.Value == null)
-                throw new ArgumentNullException(nameof(defaultSubtitleLanguage), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(defaultSubtitleLanguage), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (subtitleMode.IsSet && subtitleMode.Value == null)
-                throw new ArgumentNullException(nameof(subtitleMode), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(subtitleMode), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
             if (thumb.IsSet && thumb.Value == null)
-                throw new ArgumentNullException(nameof(thumb), "Property is not nullable for class GetStatistics200ResponseMediaContainerAccountInner.");
+                throw new ArgumentNullException(nameof(thumb), "Property is not nullable for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            return new GetStatistics200ResponseMediaContainerAccountInner(id, key, name, defaultAudioLanguage, autoSelectAudio, defaultSubtitleLanguage, subtitleMode, thumb);
+            return new GetServerAccounts200ResponseMediaContainerAccountInner(id, key, name, defaultAudioLanguage, autoSelectAudio, defaultSubtitleLanguage, subtitleMode, thumb);
         }
 
         /// <summary>
-        /// Serializes a <see cref="GetStatistics200ResponseMediaContainerAccountInner" />
+        /// Serializes a <see cref="GetServerAccounts200ResponseMediaContainerAccountInner" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getStatistics200ResponseMediaContainerAccountInner"></param>
+        /// <param name="getServerAccounts200ResponseMediaContainerAccountInner"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void Write(Utf8JsonWriter writer, GetStatistics200ResponseMediaContainerAccountInner getStatistics200ResponseMediaContainerAccountInner, JsonSerializerOptions jsonSerializerOptions)
+        public override void Write(Utf8JsonWriter writer, GetServerAccounts200ResponseMediaContainerAccountInner getServerAccounts200ResponseMediaContainerAccountInner, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
 
-            WriteProperties(writer, getStatistics200ResponseMediaContainerAccountInner, jsonSerializerOptions);
+            WriteProperties(writer, getServerAccounts200ResponseMediaContainerAccountInner, jsonSerializerOptions);
             writer.WriteEndObject();
         }
 
         /// <summary>
-        /// Serializes the properties of <see cref="GetStatistics200ResponseMediaContainerAccountInner" />
+        /// Serializes the properties of <see cref="GetServerAccounts200ResponseMediaContainerAccountInner" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getStatistics200ResponseMediaContainerAccountInner"></param>
+        /// <param name="getServerAccounts200ResponseMediaContainerAccountInner"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void WriteProperties(Utf8JsonWriter writer, GetStatistics200ResponseMediaContainerAccountInner getStatistics200ResponseMediaContainerAccountInner, JsonSerializerOptions jsonSerializerOptions)
+        public void WriteProperties(Utf8JsonWriter writer, GetServerAccounts200ResponseMediaContainerAccountInner getServerAccounts200ResponseMediaContainerAccountInner, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (getStatistics200ResponseMediaContainerAccountInner.KeyOption.IsSet && getStatistics200ResponseMediaContainerAccountInner.Key == null)
-                throw new ArgumentNullException(nameof(getStatistics200ResponseMediaContainerAccountInner.Key), "Property is required for class GetStatistics200ResponseMediaContainerAccountInner.");
+            if (getServerAccounts200ResponseMediaContainerAccountInner.KeyOption.IsSet && getServerAccounts200ResponseMediaContainerAccountInner.Key == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainerAccountInner.Key), "Property is required for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            if (getStatistics200ResponseMediaContainerAccountInner.NameOption.IsSet && getStatistics200ResponseMediaContainerAccountInner.Name == null)
-                throw new ArgumentNullException(nameof(getStatistics200ResponseMediaContainerAccountInner.Name), "Property is required for class GetStatistics200ResponseMediaContainerAccountInner.");
+            if (getServerAccounts200ResponseMediaContainerAccountInner.NameOption.IsSet && getServerAccounts200ResponseMediaContainerAccountInner.Name == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainerAccountInner.Name), "Property is required for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            if (getStatistics200ResponseMediaContainerAccountInner.DefaultAudioLanguageOption.IsSet && getStatistics200ResponseMediaContainerAccountInner.DefaultAudioLanguage == null)
-                throw new ArgumentNullException(nameof(getStatistics200ResponseMediaContainerAccountInner.DefaultAudioLanguage), "Property is required for class GetStatistics200ResponseMediaContainerAccountInner.");
+            if (getServerAccounts200ResponseMediaContainerAccountInner.DefaultAudioLanguageOption.IsSet && getServerAccounts200ResponseMediaContainerAccountInner.DefaultAudioLanguage == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainerAccountInner.DefaultAudioLanguage), "Property is required for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            if (getStatistics200ResponseMediaContainerAccountInner.DefaultSubtitleLanguageOption.IsSet && getStatistics200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage == null)
-                throw new ArgumentNullException(nameof(getStatistics200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage), "Property is required for class GetStatistics200ResponseMediaContainerAccountInner.");
+            if (getServerAccounts200ResponseMediaContainerAccountInner.DefaultSubtitleLanguageOption.IsSet && getServerAccounts200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage), "Property is required for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            if (getStatistics200ResponseMediaContainerAccountInner.ThumbOption.IsSet && getStatistics200ResponseMediaContainerAccountInner.Thumb == null)
-                throw new ArgumentNullException(nameof(getStatistics200ResponseMediaContainerAccountInner.Thumb), "Property is required for class GetStatistics200ResponseMediaContainerAccountInner.");
+            if (getServerAccounts200ResponseMediaContainerAccountInner.ThumbOption.IsSet && getServerAccounts200ResponseMediaContainerAccountInner.Thumb == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainerAccountInner.Thumb), "Property is required for class GetServerAccounts200ResponseMediaContainerAccountInner.");
 
-            if (getStatistics200ResponseMediaContainerAccountInner.IdOption.IsSet)
-                writer.WriteNumber("id", getStatistics200ResponseMediaContainerAccountInner.IdOption.Value!.Value);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.IdOption.IsSet)
+                writer.WriteNumber("id", getServerAccounts200ResponseMediaContainerAccountInner.IdOption.Value!.Value);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.KeyOption.IsSet)
-                writer.WriteString("key", getStatistics200ResponseMediaContainerAccountInner.Key);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.KeyOption.IsSet)
+                writer.WriteString("key", getServerAccounts200ResponseMediaContainerAccountInner.Key);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.NameOption.IsSet)
-                writer.WriteString("name", getStatistics200ResponseMediaContainerAccountInner.Name);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.NameOption.IsSet)
+                writer.WriteString("name", getServerAccounts200ResponseMediaContainerAccountInner.Name);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.DefaultAudioLanguageOption.IsSet)
-                writer.WriteString("defaultAudioLanguage", getStatistics200ResponseMediaContainerAccountInner.DefaultAudioLanguage);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.DefaultAudioLanguageOption.IsSet)
+                writer.WriteString("defaultAudioLanguage", getServerAccounts200ResponseMediaContainerAccountInner.DefaultAudioLanguage);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.AutoSelectAudioOption.IsSet)
-                writer.WriteBoolean("autoSelectAudio", getStatistics200ResponseMediaContainerAccountInner.AutoSelectAudioOption.Value!.Value);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.AutoSelectAudioOption.IsSet)
+                writer.WriteBoolean("autoSelectAudio", getServerAccounts200ResponseMediaContainerAccountInner.AutoSelectAudioOption.Value!.Value);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.DefaultSubtitleLanguageOption.IsSet)
-                writer.WriteString("defaultSubtitleLanguage", getStatistics200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.DefaultSubtitleLanguageOption.IsSet)
+                writer.WriteString("defaultSubtitleLanguage", getServerAccounts200ResponseMediaContainerAccountInner.DefaultSubtitleLanguage);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.SubtitleModeOption.IsSet)
-                writer.WriteNumber("subtitleMode", getStatistics200ResponseMediaContainerAccountInner.SubtitleModeOption.Value!.Value);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.SubtitleModeOption.IsSet)
+                writer.WriteNumber("subtitleMode", getServerAccounts200ResponseMediaContainerAccountInner.SubtitleModeOption.Value!.Value);
 
-            if (getStatistics200ResponseMediaContainerAccountInner.ThumbOption.IsSet)
-                writer.WriteString("thumb", getStatistics200ResponseMediaContainerAccountInner.Thumb);
+            if (getServerAccounts200ResponseMediaContainerAccountInner.ThumbOption.IsSet)
+                writer.WriteString("thumb", getServerAccounts200ResponseMediaContainerAccountInner.Thumb);
         }
     }
 
     /// <summary>
-    /// The GetStatistics200ResponseMediaContainerAccountInnerSerializationContext
+    /// The GetServerAccounts200ResponseMediaContainerAccountInnerSerializationContext
     /// </summary>
     [JsonSourceGenerationOptions(WriteIndented = true, GenerationMode = JsonSourceGenerationMode.Metadata | JsonSourceGenerationMode.Serialization)]
-    [JsonSerializable(typeof(GetStatistics200ResponseMediaContainerAccountInner))]
-    public partial class GetStatistics200ResponseMediaContainerAccountInnerSerializationContext : JsonSerializerContext { }
+    [JsonSerializable(typeof(GetServerAccounts200ResponseMediaContainerAccountInner))]
+    public partial class GetServerAccounts200ResponseMediaContainerAccountInnerSerializationContext : JsonSerializerContext { }
 }

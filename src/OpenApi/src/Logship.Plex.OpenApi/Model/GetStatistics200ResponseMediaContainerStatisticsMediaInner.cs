@@ -230,32 +230,25 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "accountID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                accountID = new Option<int?>(utf8JsonReader.GetInt32());
+                            accountID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "deviceID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                deviceID = new Option<int?>(utf8JsonReader.GetInt32());
+                            deviceID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "timespan":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                timespan = new Option<int?>(utf8JsonReader.GetInt32());
+                            timespan = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "at":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                at = new Option<int?>(utf8JsonReader.GetInt32());
+                            at = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "metadataType":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                metadataType = new Option<int?>(utf8JsonReader.GetInt32());
+                            metadataType = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "count":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                count = new Option<int?>(utf8JsonReader.GetInt32());
+                            count = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "duration":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                duration = new Option<int?>(utf8JsonReader.GetInt32());
+                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

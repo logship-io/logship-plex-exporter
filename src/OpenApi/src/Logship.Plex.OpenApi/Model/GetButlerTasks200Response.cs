@@ -121,8 +121,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "ButlerTasks":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                butlerTasks = new Option<GetButlerTasks200ResponseButlerTasks?>(JsonSerializer.Deserialize<GetButlerTasks200ResponseButlerTasks>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            butlerTasks = new Option<GetButlerTasks200ResponseButlerTasks?>(JsonSerializer.Deserialize<GetButlerTasks200ResponseButlerTasks>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

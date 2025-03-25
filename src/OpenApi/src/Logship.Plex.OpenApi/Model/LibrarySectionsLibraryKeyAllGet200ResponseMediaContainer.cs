@@ -140,12 +140,10 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<int?>(utf8JsonReader.GetInt32());
+                            size = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "Metadata":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                metadata = new Option<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            metadata = new Option<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

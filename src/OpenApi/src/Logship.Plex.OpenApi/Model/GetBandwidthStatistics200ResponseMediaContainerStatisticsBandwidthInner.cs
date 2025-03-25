@@ -212,28 +212,22 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "accountID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                accountID = new Option<int?>(utf8JsonReader.GetInt32());
+                            accountID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "deviceID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                deviceID = new Option<int?>(utf8JsonReader.GetInt32());
+                            deviceID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "timespan":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                timespan = new Option<int?>(utf8JsonReader.GetInt32());
+                            timespan = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "at":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                at = new Option<int?>(utf8JsonReader.GetInt32());
+                            at = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "lan":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                lan = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            lan = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "bytes":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                bytes = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            bytes = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

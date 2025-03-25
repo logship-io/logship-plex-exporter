@@ -260,16 +260,13 @@ namespace Logship.Plex.OpenApi.Model
                             coordinates = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "european_union_member":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                europeanUnionMember = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            europeanUnionMember = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "in_privacy_restricted_country":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                inPrivacyRestrictedCountry = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            inPrivacyRestrictedCountry = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "in_privacy_restricted_region":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                inPrivacyRestrictedRegion = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            inPrivacyRestrictedRegion = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         default:
                             break;

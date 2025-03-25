@@ -27,16 +27,16 @@ using Logship.Plex.OpenApi.Client;
 namespace Logship.Plex.OpenApi.Model
 {
     /// <summary>
-    /// GetSessions200Response
+    /// GetServerAccounts200Response
     /// </summary>
-    public partial class GetSessions200Response : IValidatableObject
+    public partial class GetServerAccounts200Response : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetSessions200Response" /> class.
+        /// Initializes a new instance of the <see cref="GetServerAccounts200Response" /> class.
         /// </summary>
         /// <param name="mediaContainer">mediaContainer</param>
         [JsonConstructor]
-        public GetSessions200Response(Option<GetSessions200ResponseMediaContainer?> mediaContainer = default)
+        public GetServerAccounts200Response(Option<GetServerAccounts200ResponseMediaContainer?> mediaContainer = default)
         {
             MediaContainerOption = mediaContainer;
             OnCreated();
@@ -49,13 +49,13 @@ namespace Logship.Plex.OpenApi.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<GetSessions200ResponseMediaContainer?> MediaContainerOption { get; private set; }
+        public Option<GetServerAccounts200ResponseMediaContainer?> MediaContainerOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets MediaContainer
         /// </summary>
         [JsonPropertyName("MediaContainer")]
-        public GetSessions200ResponseMediaContainer? MediaContainer { get { return this.MediaContainerOption; } set { this.MediaContainerOption = new(value); } }
+        public GetServerAccounts200ResponseMediaContainer? MediaContainer { get { return this.MediaContainerOption; } set { this.MediaContainerOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +64,7 @@ namespace Logship.Plex.OpenApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetSessions200Response {\n");
+            sb.Append("class GetServerAccounts200Response {\n");
             sb.Append("  MediaContainer: ").Append(MediaContainer).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -82,19 +82,19 @@ namespace Logship.Plex.OpenApi.Model
     }
 
     /// <summary>
-    /// A Json converter for type <see cref="GetSessions200Response" />
+    /// A Json converter for type <see cref="GetServerAccounts200Response" />
     /// </summary>
-    public class GetSessions200ResponseJsonConverter : JsonConverter<GetSessions200Response>
+    public class GetServerAccounts200ResponseJsonConverter : JsonConverter<GetServerAccounts200Response>
     {
         /// <summary>
-        /// Deserializes json to <see cref="GetSessions200Response" />
+        /// Deserializes json to <see cref="GetServerAccounts200Response" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
         /// <param name="typeToConvert"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <returns></returns>
         /// <exception cref="JsonException"></exception>
-        public override GetSessions200Response Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
+        public override GetServerAccounts200Response Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
@@ -103,7 +103,7 @@ namespace Logship.Plex.OpenApi.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<GetSessions200ResponseMediaContainer?> mediaContainer = default;
+            Option<GetServerAccounts200ResponseMediaContainer?> mediaContainer = default;
 
             while (utf8JsonReader.Read())
             {
@@ -121,7 +121,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "MediaContainer":
-                            mediaContainer = new Option<GetSessions200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            mediaContainer = new Option<GetServerAccounts200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetServerAccounts200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -130,50 +130,50 @@ namespace Logship.Plex.OpenApi.Model
             }
 
             if (mediaContainer.IsSet && mediaContainer.Value == null)
-                throw new ArgumentNullException(nameof(mediaContainer), "Property is not nullable for class GetSessions200Response.");
+                throw new ArgumentNullException(nameof(mediaContainer), "Property is not nullable for class GetServerAccounts200Response.");
 
-            return new GetSessions200Response(mediaContainer);
+            return new GetServerAccounts200Response(mediaContainer);
         }
 
         /// <summary>
-        /// Serializes a <see cref="GetSessions200Response" />
+        /// Serializes a <see cref="GetServerAccounts200Response" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getSessions200Response"></param>
+        /// <param name="getServerAccounts200Response"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void Write(Utf8JsonWriter writer, GetSessions200Response getSessions200Response, JsonSerializerOptions jsonSerializerOptions)
+        public override void Write(Utf8JsonWriter writer, GetServerAccounts200Response getServerAccounts200Response, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
 
-            WriteProperties(writer, getSessions200Response, jsonSerializerOptions);
+            WriteProperties(writer, getServerAccounts200Response, jsonSerializerOptions);
             writer.WriteEndObject();
         }
 
         /// <summary>
-        /// Serializes the properties of <see cref="GetSessions200Response" />
+        /// Serializes the properties of <see cref="GetServerAccounts200Response" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getSessions200Response"></param>
+        /// <param name="getServerAccounts200Response"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void WriteProperties(Utf8JsonWriter writer, GetSessions200Response getSessions200Response, JsonSerializerOptions jsonSerializerOptions)
+        public void WriteProperties(Utf8JsonWriter writer, GetServerAccounts200Response getServerAccounts200Response, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (getSessions200Response.MediaContainerOption.IsSet && getSessions200Response.MediaContainer == null)
-                throw new ArgumentNullException(nameof(getSessions200Response.MediaContainer), "Property is required for class GetSessions200Response.");
+            if (getServerAccounts200Response.MediaContainerOption.IsSet && getServerAccounts200Response.MediaContainer == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200Response.MediaContainer), "Property is required for class GetServerAccounts200Response.");
 
-            if (getSessions200Response.MediaContainerOption.IsSet)
+            if (getServerAccounts200Response.MediaContainerOption.IsSet)
             {
                 writer.WritePropertyName("MediaContainer");
-                JsonSerializer.Serialize(writer, getSessions200Response.MediaContainer, jsonSerializerOptions);
+                JsonSerializer.Serialize(writer, getServerAccounts200Response.MediaContainer, jsonSerializerOptions);
             }
         }
     }
 
     /// <summary>
-    /// The GetSessions200ResponseSerializationContext
+    /// The GetServerAccounts200ResponseSerializationContext
     /// </summary>
     [JsonSourceGenerationOptions(WriteIndented = true, GenerationMode = JsonSourceGenerationMode.Metadata | JsonSourceGenerationMode.Serialization)]
-    [JsonSerializable(typeof(GetSessions200Response))]
-    public partial class GetSessions200ResponseSerializationContext : JsonSerializerContext { }
+    [JsonSerializable(typeof(GetServerAccounts200Response))]
+    public partial class GetServerAccounts200ResponseSerializationContext : JsonSerializerContext { }
 }

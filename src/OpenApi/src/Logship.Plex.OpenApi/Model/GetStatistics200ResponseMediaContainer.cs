@@ -173,20 +173,16 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<int?>(utf8JsonReader.GetInt32());
+                            size = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "Device":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                device = new Option<List<GetStatistics200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            device = new Option<List<GetStatistics200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Account":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                account = new Option<List<GetStatistics200ResponseMediaContainerAccountInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerAccountInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            account = new Option<List<GetStatistics200ResponseMediaContainerAccountInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerAccountInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "StatisticsMedia":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                statisticsMedia = new Option<List<GetStatistics200ResponseMediaContainerStatisticsMediaInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerStatisticsMediaInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            statisticsMedia = new Option<List<GetStatistics200ResponseMediaContainerStatisticsMediaInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerStatisticsMediaInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

@@ -6,7 +6,7 @@
 ```ps1
 $properties = @(
     'apiName=Api',
-    'targetFramework=net8.0',
+    'targetFramework=net9.0',
     'validatable=true',
     'nullableReferenceTypes=true',
     'hideGenerationTimestamp=true',
@@ -129,7 +129,7 @@ Authentication schemes defined for the API:
 
 ## Build
 - SDK version: 1.0.0
-- Generator version: 7.10.0-SNAPSHOT
+- Generator version: 7.13.0-SNAPSHOT
 - Build package: org.openapitools.codegen.languages.CSharpClientCodegen
 
 ## Api Information
@@ -172,7 +172,7 @@ Authentication schemes defined for the API:
 - packageCompany: OpenAPI
 - packageCopyright: No Copyright
 - packageDescription: A library generated from a OpenAPI doc
-- packageGuid: {320CDC8A-799F-48EB-82EA-C09ABEADD44E}
+- packageGuid: {B2761D0E-1022-42F7-9312-C0B74F84E18E}
 - packageName: Logship.Plex.OpenApi
 - packageTags: 
 - packageTitle: OpenAPI Library
@@ -181,7 +181,7 @@ Authentication schemes defined for the API:
 - returnICollection: false
 - sortParamsByRequiredFlag: 
 - sourceFolder: src
-- targetFramework: net8.0
+- targetFramework: net9.0
 - useCollection: false
 - useDateTimeOffset: false
 - useOneOfDiscriminatorLookup: false

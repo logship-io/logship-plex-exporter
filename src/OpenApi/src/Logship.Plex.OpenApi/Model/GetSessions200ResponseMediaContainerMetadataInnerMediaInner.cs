@@ -362,26 +362,22 @@ namespace Logship.Plex.OpenApi.Model
                             aspectRatio = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "audioChannels":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                audioChannels = new Option<int?>(utf8JsonReader.GetInt32());
+                            audioChannels = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "audioCodec":
                             audioCodec = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "bitrate":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                bitrate = new Option<int?>(utf8JsonReader.GetInt32());
+                            bitrate = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "container":
                             container = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                duration = new Option<int?>(utf8JsonReader.GetInt32());
+                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "height":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                height = new Option<int?>(utf8JsonReader.GetInt32());
+                            height = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "id":
                             id = new Option<string?>(utf8JsonReader.GetString()!);
@@ -399,16 +395,13 @@ namespace Logship.Plex.OpenApi.Model
                             videoResolution = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "width":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                width = new Option<int?>(utf8JsonReader.GetInt32());
+                            width = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "selected":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                selected = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            selected = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "Part":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                part = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            part = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

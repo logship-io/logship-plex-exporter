@@ -42,6 +42,34 @@ paths:
       summary: Get Server Capabilities
       tags:
       - Server
+  /accounts:
+    get:
+      description: Get Server Accounts
+      operationId: getServerAccounts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getServerAccounts_200_response'
+          description: The Server Accounts
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getServerCapabilities_400_response'
+          description: "Bad Request - A parameter was not specified, or was specified\
+            \ incorrectly."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/getServerCapabilities_401_response'
+          description: Unauthorized - Returned if the X-Plex-Token is missing from
+            the header or query.
+      summary: Get Server Accounts
+      tags:
+      - Server
   /activities:
     get:
       description: Get Server Activities
@@ -1494,6 +1522,41 @@ components:
           items:
             $ref: '#/components/schemas/getButlerTasks_200_response_ButlerTasks_ButlerTask_inner'
           type: array
+    getServerAccounts_200_response_MediaContainer_Account_inner:
+      example:
+        thumb: ""
+        defaultAudioLanguage: en
+        name: shoeletz
+        defaultSubtitleLanguage: en
+        id: 1
+        autoSelectAudio: true
+        subtitleMode: 1
+        key: /accounts/1
+      properties:
+        id:
+          example: 1
+          type: integer
+        key:
+          example: /accounts/1
+          type: string
+        name:
+          example: shoeletz
+          type: string
+        defaultAudioLanguage:
+          example: en
+          type: string
+        autoSelectAudio:
+          example: true
+          type: boolean
+        defaultSubtitleLanguage:
+          example: en
+          type: string
+        subtitleMode:
+          example: 1
+          type: integer
+        thumb:
+          example: ""
+          type: string
     getServerCapabilities_401_response:
       example:
         errors:
@@ -1715,6 +1778,63 @@ components:
           type: string
         value:
           type: string
+    getServerAccounts_200_response_MediaContainer:
+      example:
+        identifier: com.plexapp.system.accounts
+        Account:
+        - thumb: ""
+          defaultAudioLanguage: en
+          name: shoeletz
+          defaultSubtitleLanguage: en
+          id: 1
+          autoSelectAudio: true
+          subtitleMode: 1
+          key: /accounts/1
+        - thumb: ""
+          defaultAudioLanguage: en
+          name: shoeletz
+          defaultSubtitleLanguage: en
+          id: 1
+          autoSelectAudio: true
+          subtitleMode: 1
+          key: /accounts/1
+        size: 6
+      properties:
+        size:
+          example: 6
+          type: integer
+        identifier:
+          example: com.plexapp.system.accounts
+          type: string
+        Account:
+          items:
+            $ref: '#/components/schemas/getServerAccounts_200_response_MediaContainer_Account_inner'
+          type: array
+    getServerAccounts_200_response:
+      example:
+        MediaContainer:
+          identifier: com.plexapp.system.accounts
+          Account:
+          - thumb: ""
+            defaultAudioLanguage: en
+            name: shoeletz
+            defaultSubtitleLanguage: en
+            id: 1
+            autoSelectAudio: true
+            subtitleMode: 1
+            key: /accounts/1
+          - thumb: ""
+            defaultAudioLanguage: en
+            name: shoeletz
+            defaultSubtitleLanguage: en
+            id: 1
+            autoSelectAudio: true
+            subtitleMode: 1
+            key: /accounts/1
+          size: 6
+      properties:
+        MediaContainer:
+          $ref: '#/components/schemas/getServerAccounts_200_response_MediaContainer'
     getTranscodeSessions_200_response_MediaContainer_TranscodeSession_inner:
       properties:
         key:

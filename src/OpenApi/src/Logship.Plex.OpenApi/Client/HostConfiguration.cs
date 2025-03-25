@@ -59,6 +59,9 @@ namespace Logship.Plex.OpenApi.Client
             _jsonOptions.Converters.Add(new GetResourcesStatistics200ResponseJsonConverter());
             _jsonOptions.Converters.Add(new GetResourcesStatistics200ResponseMediaContainerJsonConverter());
             _jsonOptions.Converters.Add(new GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInnerJsonConverter());
+            _jsonOptions.Converters.Add(new GetServerAccounts200ResponseJsonConverter());
+            _jsonOptions.Converters.Add(new GetServerAccounts200ResponseMediaContainerJsonConverter());
+            _jsonOptions.Converters.Add(new GetServerAccounts200ResponseMediaContainerAccountInnerJsonConverter());
             _jsonOptions.Converters.Add(new GetServerActivities200ResponseJsonConverter());
             _jsonOptions.Converters.Add(new GetServerActivities200ResponseMediaContainerJsonConverter());
             _jsonOptions.Converters.Add(new GetServerActivities200ResponseMediaContainerActivityInnerJsonConverter());
@@ -127,6 +130,9 @@ namespace Logship.Plex.OpenApi.Client
                 new GetResourcesStatistics200ResponseSerializationContext(),
                 new GetResourcesStatistics200ResponseMediaContainerSerializationContext(),
                 new GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInnerSerializationContext(),
+                new GetServerAccounts200ResponseSerializationContext(),
+                new GetServerAccounts200ResponseMediaContainerSerializationContext(),
+                new GetServerAccounts200ResponseMediaContainerAccountInnerSerializationContext(),
                 new GetServerActivities200ResponseSerializationContext(),
                 new GetServerActivities200ResponseMediaContainerSerializationContext(),
                 new GetServerActivities200ResponseMediaContainerActivityInnerSerializationContext(),

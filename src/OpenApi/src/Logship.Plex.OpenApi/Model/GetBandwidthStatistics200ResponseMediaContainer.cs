@@ -172,20 +172,16 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Device":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                device = new Option<List<GetStatistics200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            device = new Option<List<GetStatistics200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Account":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                account = new Option<List<GetStatistics200ResponseMediaContainerAccountInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerAccountInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            account = new Option<List<GetStatistics200ResponseMediaContainerAccountInner>?>(JsonSerializer.Deserialize<List<GetStatistics200ResponseMediaContainerAccountInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "StatisticsBandwidth":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                statisticsBandwidth = new Option<List<GetBandwidthStatistics200ResponseMediaContainerStatisticsBandwidthInner>?>(JsonSerializer.Deserialize<List<GetBandwidthStatistics200ResponseMediaContainerStatisticsBandwidthInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            statisticsBandwidth = new Option<List<GetBandwidthStatistics200ResponseMediaContainerStatisticsBandwidthInner>?>(JsonSerializer.Deserialize<List<GetBandwidthStatistics200ResponseMediaContainerStatisticsBandwidthInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

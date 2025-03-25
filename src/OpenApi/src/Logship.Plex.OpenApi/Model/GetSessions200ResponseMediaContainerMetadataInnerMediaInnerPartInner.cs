@@ -277,8 +277,7 @@ namespace Logship.Plex.OpenApi.Model
                             container = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                duration = new Option<int?>(utf8JsonReader.GetInt32());
+                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "file":
                             file = new Option<string?>(utf8JsonReader.GetString()!);
@@ -290,8 +289,7 @@ namespace Logship.Plex.OpenApi.Model
                             key = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "size":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "videoProfile":
                             videoProfile = new Option<string?>(utf8JsonReader.GetString()!);
@@ -300,12 +298,10 @@ namespace Logship.Plex.OpenApi.Model
                             decision = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "selected":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                selected = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            selected = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "Stream":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                stream = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            stream = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

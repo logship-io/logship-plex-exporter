@@ -412,20 +412,16 @@ namespace Logship.Plex.OpenApi.Model
                             varVersion = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "local":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                local = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            local = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "relayed":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                relayed = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            relayed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "secure":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                secure = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            secure = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "userID":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                userID = new Option<int?>(utf8JsonReader.GetInt32());
+                            userID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

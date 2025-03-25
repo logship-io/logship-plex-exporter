@@ -212,28 +212,22 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "timespan":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                timespan = new Option<int?>(utf8JsonReader.GetInt32());
+                            timespan = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "at":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                at = new Option<int?>(utf8JsonReader.GetInt32());
+                            at = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "hostCpuUtilization":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                hostCpuUtilization = new Option<float?>((float)utf8JsonReader.GetDouble());
+                            hostCpuUtilization = new Option<float?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (float?)null : (float)utf8JsonReader.GetDouble());
                             break;
                         case "processCpuUtilization":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                processCpuUtilization = new Option<float?>((float)utf8JsonReader.GetDouble());
+                            processCpuUtilization = new Option<float?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (float?)null : (float)utf8JsonReader.GetDouble());
                             break;
                         case "hostMemoryUtilization":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                hostMemoryUtilization = new Option<float?>((float)utf8JsonReader.GetDouble());
+                            hostMemoryUtilization = new Option<float?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (float?)null : (float)utf8JsonReader.GetDouble());
                             break;
                         case "processMemoryUtilization":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                processMemoryUtilization = new Option<float?>((float)utf8JsonReader.GetDouble());
+                            processMemoryUtilization = new Option<float?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (float?)null : (float)utf8JsonReader.GetDouble());
                             break;
                         default:
                             break;

@@ -200,8 +200,7 @@ namespace Logship.Plex.OpenApi.Model
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                duration = new Option<int?>(utf8JsonReader.GetInt32());
+                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "ratingKey":
                             ratingKey = new Option<string?>(utf8JsonReader.GetString()!);

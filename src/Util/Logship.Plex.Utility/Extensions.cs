@@ -3,12 +3,7 @@ using Logship.Plex.Utility.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logship.Plex.Utility
 {
@@ -28,6 +23,7 @@ namespace Logship.Plex.Utility
                 .AddHostedService<GeoDataService>()
                 .AddHostedService<LibraryService>()
                 .AddHostedService<ResourceStatisticsService>()
+                .AddHostedService<ServerAccountsService>()
                 .AddHostedService<ServerCapabilitiesService>()
                 .AddHostedService<ServerClientsService>()
                 .AddHostedService<ServerDeviceService>()

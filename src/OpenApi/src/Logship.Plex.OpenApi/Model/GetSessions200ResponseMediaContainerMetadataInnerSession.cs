@@ -158,8 +158,7 @@ namespace Logship.Plex.OpenApi.Model
                             id = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "bandwidth":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                bandwidth = new Option<int?>(utf8JsonReader.GetInt32());
+                            bandwidth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "location":
                             location = new Option<string?>(utf8JsonReader.GetString()!);

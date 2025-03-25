@@ -138,8 +138,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "locked":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                locked = new Option<bool?>(utf8JsonReader.GetBoolean());
+                            locked = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);

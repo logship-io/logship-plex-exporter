@@ -193,8 +193,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "id":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                id = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            id = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -206,8 +205,7 @@ namespace Logship.Plex.OpenApi.Model
                             clientIdentifier = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "createdAt":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                createdAt = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            createdAt = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         default:
                             break;

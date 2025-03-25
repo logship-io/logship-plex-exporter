@@ -311,8 +311,7 @@ namespace Logship.Plex.OpenApi.Model
                             address = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "port":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                port = new Option<decimal?>(utf8JsonReader.GetDecimal());
+                            port = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
                             break;
                         case "machineIdentifier":
                             machineIdentifier = new Option<string?>(utf8JsonReader.GetString()!);

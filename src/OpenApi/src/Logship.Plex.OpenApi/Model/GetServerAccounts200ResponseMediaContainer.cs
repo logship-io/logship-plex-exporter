@@ -27,22 +27,22 @@ using Logship.Plex.OpenApi.Client;
 namespace Logship.Plex.OpenApi.Model
 {
     /// <summary>
-    /// GetDevices200ResponseMediaContainer
+    /// GetServerAccounts200ResponseMediaContainer
     /// </summary>
-    public partial class GetDevices200ResponseMediaContainer : IValidatableObject
+    public partial class GetServerAccounts200ResponseMediaContainer : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetDevices200ResponseMediaContainer" /> class.
+        /// Initializes a new instance of the <see cref="GetServerAccounts200ResponseMediaContainer" /> class.
         /// </summary>
         /// <param name="size">size</param>
         /// <param name="identifier">identifier</param>
-        /// <param name="device">device</param>
+        /// <param name="account">account</param>
         [JsonConstructor]
-        public GetDevices200ResponseMediaContainer(Option<decimal?> size = default, Option<string?> identifier = default, Option<List<GetDevices200ResponseMediaContainerDeviceInner>?> device = default)
+        public GetServerAccounts200ResponseMediaContainer(Option<int?> size = default, Option<string?> identifier = default, Option<List<GetServerAccounts200ResponseMediaContainerAccountInner>?> account = default)
         {
             SizeOption = size;
             IdentifierOption = identifier;
-            DeviceOption = device;
+            AccountOption = account;
             OnCreated();
         }
 
@@ -53,14 +53,14 @@ namespace Logship.Plex.OpenApi.Model
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<decimal?> SizeOption { get; private set; }
+        public Option<int?> SizeOption { get; private set; }
 
         /// <summary>
         /// Gets or Sets Size
         /// </summary>
-        /* <example>151</example> */
+        /* <example>6</example> */
         [JsonPropertyName("size")]
-        public decimal? Size { get { return this.SizeOption; } set { this.SizeOption = new(value); } }
+        public int? Size { get { return this.SizeOption; } set { this.SizeOption = new(value); } }
 
         /// <summary>
         /// Used to track the state of Identifier
@@ -72,22 +72,22 @@ namespace Logship.Plex.OpenApi.Model
         /// <summary>
         /// Gets or Sets Identifier
         /// </summary>
-        /* <example>com.plexapp.system.devices</example> */
+        /* <example>com.plexapp.system.accounts</example> */
         [JsonPropertyName("identifier")]
         public string? Identifier { get { return this.IdentifierOption; } set { this.IdentifierOption = new(value); } }
 
         /// <summary>
-        /// Used to track the state of Device
+        /// Used to track the state of Account
         /// </summary>
         [JsonIgnore]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public Option<List<GetDevices200ResponseMediaContainerDeviceInner>?> DeviceOption { get; private set; }
+        public Option<List<GetServerAccounts200ResponseMediaContainerAccountInner>?> AccountOption { get; private set; }
 
         /// <summary>
-        /// Gets or Sets Device
+        /// Gets or Sets Account
         /// </summary>
-        [JsonPropertyName("Device")]
-        public List<GetDevices200ResponseMediaContainerDeviceInner>? Device { get { return this.DeviceOption; } set { this.DeviceOption = new(value); } }
+        [JsonPropertyName("Account")]
+        public List<GetServerAccounts200ResponseMediaContainerAccountInner>? Account { get { return this.AccountOption; } set { this.AccountOption = new(value); } }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -96,10 +96,10 @@ namespace Logship.Plex.OpenApi.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetDevices200ResponseMediaContainer {\n");
+            sb.Append("class GetServerAccounts200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
-            sb.Append("  Device: ").Append(Device).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,19 +116,19 @@ namespace Logship.Plex.OpenApi.Model
     }
 
     /// <summary>
-    /// A Json converter for type <see cref="GetDevices200ResponseMediaContainer" />
+    /// A Json converter for type <see cref="GetServerAccounts200ResponseMediaContainer" />
     /// </summary>
-    public class GetDevices200ResponseMediaContainerJsonConverter : JsonConverter<GetDevices200ResponseMediaContainer>
+    public class GetServerAccounts200ResponseMediaContainerJsonConverter : JsonConverter<GetServerAccounts200ResponseMediaContainer>
     {
         /// <summary>
-        /// Deserializes json to <see cref="GetDevices200ResponseMediaContainer" />
+        /// Deserializes json to <see cref="GetServerAccounts200ResponseMediaContainer" />
         /// </summary>
         /// <param name="utf8JsonReader"></param>
         /// <param name="typeToConvert"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <returns></returns>
         /// <exception cref="JsonException"></exception>
-        public override GetDevices200ResponseMediaContainer Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
+        public override GetServerAccounts200ResponseMediaContainer Read(ref Utf8JsonReader utf8JsonReader, Type typeToConvert, JsonSerializerOptions jsonSerializerOptions)
         {
             int currentDepth = utf8JsonReader.CurrentDepth;
 
@@ -137,9 +137,9 @@ namespace Logship.Plex.OpenApi.Model
 
             JsonTokenType startingTokenType = utf8JsonReader.TokenType;
 
-            Option<decimal?> size = default;
+            Option<int?> size = default;
             Option<string?> identifier = default;
-            Option<List<GetDevices200ResponseMediaContainerDeviceInner>?> device = default;
+            Option<List<GetServerAccounts200ResponseMediaContainerAccountInner>?> account = default;
 
             while (utf8JsonReader.Read())
             {
@@ -157,13 +157,13 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            size = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "identifier":
                             identifier = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
-                        case "Device":
-                            device = new Option<List<GetDevices200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetDevices200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                        case "Account":
+                            account = new Option<List<GetServerAccounts200ResponseMediaContainerAccountInner>?>(JsonSerializer.Deserialize<List<GetServerAccounts200ResponseMediaContainerAccountInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
@@ -172,65 +172,65 @@ namespace Logship.Plex.OpenApi.Model
             }
 
             if (size.IsSet && size.Value == null)
-                throw new ArgumentNullException(nameof(size), "Property is not nullable for class GetDevices200ResponseMediaContainer.");
+                throw new ArgumentNullException(nameof(size), "Property is not nullable for class GetServerAccounts200ResponseMediaContainer.");
 
             if (identifier.IsSet && identifier.Value == null)
-                throw new ArgumentNullException(nameof(identifier), "Property is not nullable for class GetDevices200ResponseMediaContainer.");
+                throw new ArgumentNullException(nameof(identifier), "Property is not nullable for class GetServerAccounts200ResponseMediaContainer.");
 
-            if (device.IsSet && device.Value == null)
-                throw new ArgumentNullException(nameof(device), "Property is not nullable for class GetDevices200ResponseMediaContainer.");
+            if (account.IsSet && account.Value == null)
+                throw new ArgumentNullException(nameof(account), "Property is not nullable for class GetServerAccounts200ResponseMediaContainer.");
 
-            return new GetDevices200ResponseMediaContainer(size, identifier, device);
+            return new GetServerAccounts200ResponseMediaContainer(size, identifier, account);
         }
 
         /// <summary>
-        /// Serializes a <see cref="GetDevices200ResponseMediaContainer" />
+        /// Serializes a <see cref="GetServerAccounts200ResponseMediaContainer" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getDevices200ResponseMediaContainer"></param>
+        /// <param name="getServerAccounts200ResponseMediaContainer"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public override void Write(Utf8JsonWriter writer, GetDevices200ResponseMediaContainer getDevices200ResponseMediaContainer, JsonSerializerOptions jsonSerializerOptions)
+        public override void Write(Utf8JsonWriter writer, GetServerAccounts200ResponseMediaContainer getServerAccounts200ResponseMediaContainer, JsonSerializerOptions jsonSerializerOptions)
         {
             writer.WriteStartObject();
 
-            WriteProperties(writer, getDevices200ResponseMediaContainer, jsonSerializerOptions);
+            WriteProperties(writer, getServerAccounts200ResponseMediaContainer, jsonSerializerOptions);
             writer.WriteEndObject();
         }
 
         /// <summary>
-        /// Serializes the properties of <see cref="GetDevices200ResponseMediaContainer" />
+        /// Serializes the properties of <see cref="GetServerAccounts200ResponseMediaContainer" />
         /// </summary>
         /// <param name="writer"></param>
-        /// <param name="getDevices200ResponseMediaContainer"></param>
+        /// <param name="getServerAccounts200ResponseMediaContainer"></param>
         /// <param name="jsonSerializerOptions"></param>
         /// <exception cref="NotImplementedException"></exception>
-        public void WriteProperties(Utf8JsonWriter writer, GetDevices200ResponseMediaContainer getDevices200ResponseMediaContainer, JsonSerializerOptions jsonSerializerOptions)
+        public void WriteProperties(Utf8JsonWriter writer, GetServerAccounts200ResponseMediaContainer getServerAccounts200ResponseMediaContainer, JsonSerializerOptions jsonSerializerOptions)
         {
-            if (getDevices200ResponseMediaContainer.IdentifierOption.IsSet && getDevices200ResponseMediaContainer.Identifier == null)
-                throw new ArgumentNullException(nameof(getDevices200ResponseMediaContainer.Identifier), "Property is required for class GetDevices200ResponseMediaContainer.");
+            if (getServerAccounts200ResponseMediaContainer.IdentifierOption.IsSet && getServerAccounts200ResponseMediaContainer.Identifier == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainer.Identifier), "Property is required for class GetServerAccounts200ResponseMediaContainer.");
 
-            if (getDevices200ResponseMediaContainer.DeviceOption.IsSet && getDevices200ResponseMediaContainer.Device == null)
-                throw new ArgumentNullException(nameof(getDevices200ResponseMediaContainer.Device), "Property is required for class GetDevices200ResponseMediaContainer.");
+            if (getServerAccounts200ResponseMediaContainer.AccountOption.IsSet && getServerAccounts200ResponseMediaContainer.Account == null)
+                throw new ArgumentNullException(nameof(getServerAccounts200ResponseMediaContainer.Account), "Property is required for class GetServerAccounts200ResponseMediaContainer.");
 
-            if (getDevices200ResponseMediaContainer.SizeOption.IsSet)
-                writer.WriteNumber("size", getDevices200ResponseMediaContainer.SizeOption.Value!.Value);
+            if (getServerAccounts200ResponseMediaContainer.SizeOption.IsSet)
+                writer.WriteNumber("size", getServerAccounts200ResponseMediaContainer.SizeOption.Value!.Value);
 
-            if (getDevices200ResponseMediaContainer.IdentifierOption.IsSet)
-                writer.WriteString("identifier", getDevices200ResponseMediaContainer.Identifier);
+            if (getServerAccounts200ResponseMediaContainer.IdentifierOption.IsSet)
+                writer.WriteString("identifier", getServerAccounts200ResponseMediaContainer.Identifier);
 
-            if (getDevices200ResponseMediaContainer.DeviceOption.IsSet)
+            if (getServerAccounts200ResponseMediaContainer.AccountOption.IsSet)
             {
-                writer.WritePropertyName("Device");
-                JsonSerializer.Serialize(writer, getDevices200ResponseMediaContainer.Device, jsonSerializerOptions);
+                writer.WritePropertyName("Account");
+                JsonSerializer.Serialize(writer, getServerAccounts200ResponseMediaContainer.Account, jsonSerializerOptions);
             }
         }
     }
 
     /// <summary>
-    /// The GetDevices200ResponseMediaContainerSerializationContext
+    /// The GetServerAccounts200ResponseMediaContainerSerializationContext
     /// </summary>
     [JsonSourceGenerationOptions(WriteIndented = true, GenerationMode = JsonSourceGenerationMode.Metadata | JsonSourceGenerationMode.Serialization)]
-    [JsonSerializable(typeof(GetDevices200ResponseMediaContainer))]
-    public partial class GetDevices200ResponseMediaContainerSerializationContext : JsonSerializerContext { }
+    [JsonSerializable(typeof(GetServerAccounts200ResponseMediaContainer))]
+    public partial class GetServerAccounts200ResponseMediaContainerSerializationContext : JsonSerializerContext { }
 }

@@ -155,8 +155,7 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "count":
-                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
-                                count = new Option<int?>(utf8JsonReader.GetInt32());
+                            count = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
                             break;
                         case "key":
                             key = new Option<string?>(utf8JsonReader.GetString()!);
