@@ -103,6 +103,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? TopRight { get { return this.TopRightOption; } set { this.TopRightOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +120,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  BottomRight: ").Append(BottomRight).Append("\n");
             sb.Append("  TopLeft: ").Append(TopLeft).Append("\n");
             sb.Append("  TopRight: ").Append(TopRight).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

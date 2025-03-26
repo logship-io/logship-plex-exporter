@@ -88,6 +88,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Location { get { return this.LocationOption; } set { this.LocationOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +104,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Bandwidth: ").Append(Bandwidth).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,7 +165,8 @@ namespace Logship.Plex.OpenApi.Model
                             id = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "bandwidth":
-                            bandwidth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                bandwidth = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "location":
                             location = new Option<string?>(utf8JsonReader.GetString()!);

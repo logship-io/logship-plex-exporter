@@ -58,6 +58,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? LibrarySectionID { get { return this.LibrarySectionIDOption; } set { this.LibrarySectionIDOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +72,7 @@ namespace Logship.Plex.OpenApi.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetServerActivities200ResponseMediaContainerActivityInnerContext {\n");
             sb.Append("  LibrarySectionID: ").Append(LibrarySectionID).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

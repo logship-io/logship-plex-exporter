@@ -58,6 +58,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetServerCapabilities400ResponseErrorsInner>? Errors { get { return this.ErrorsOption; } set { this.ErrorsOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +72,7 @@ namespace Logship.Plex.OpenApi.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetServerCapabilities400Response {\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,7 +128,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "errors":
-                            errors = new Option<List<GetServerCapabilities400ResponseErrorsInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities400ResponseErrorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                errors = new Option<List<GetServerCapabilities400ResponseErrorsInner>?>(JsonSerializer.Deserialize<List<GetServerCapabilities400ResponseErrorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

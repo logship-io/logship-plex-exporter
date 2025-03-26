@@ -129,7 +129,7 @@ Authentication schemes defined for the API:
 
 ## Build
 - SDK version: 1.0.0
-- Generator version: 7.13.0-SNAPSHOT
+- Generator version: 7.12.0
 - Build package: org.openapitools.codegen.languages.CSharpClientCodegen
 
 ## Api Information
@@ -152,7 +152,7 @@ Authentication schemes defined for the API:
 - apiName: Api
 - caseInsensitiveResponseHeaders: 
 - conditionalSerialization: false
-- disallowAdditionalPropertiesIfNotPresent: 
+- disallowAdditionalPropertiesIfNotPresent: false
 - gitHost: github.com
 - gitRepoId: GIT_REPO_ID
 - gitUserId: GIT_USER_ID
@@ -172,7 +172,7 @@ Authentication schemes defined for the API:
 - packageCompany: OpenAPI
 - packageCopyright: No Copyright
 - packageDescription: A library generated from a OpenAPI doc
-- packageGuid: {B2761D0E-1022-42F7-9312-C0B74F84E18E}
+- packageGuid: {1D906046-F838-4882-9AAE-36F02044DA84}
 - packageName: Logship.Plex.OpenApi
 - packageTags: 
 - packageTitle: OpenAPI Library

@@ -283,6 +283,12 @@ namespace Logship.Plex.OpenApi.Model
         public int? UserID { get { return this.UserIDOption; } set { this.UserIDOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -306,6 +312,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Relayed: ").Append(Relayed).Append("\n");
             sb.Append("  Secure: ").Append(Secure).Append("\n");
             sb.Append("  UserID: ").Append(UserID).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -412,16 +419,20 @@ namespace Logship.Plex.OpenApi.Model
                             varVersion = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "local":
-                            local = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                local = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "relayed":
-                            relayed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                relayed = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "secure":
-                            secure = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                secure = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "userID":
-                            userID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                userID = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

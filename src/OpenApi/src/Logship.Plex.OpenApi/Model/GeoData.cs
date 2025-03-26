@@ -153,6 +153,12 @@ namespace Logship.Plex.OpenApi.Model
         public bool InPrivacyRestrictedRegion { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +177,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  EuropeanUnionMember: ").Append(EuropeanUnionMember).Append("\n");
             sb.Append("  InPrivacyRestrictedCountry: ").Append(InPrivacyRestrictedCountry).Append("\n");
             sb.Append("  InPrivacyRestrictedRegion: ").Append(InPrivacyRestrictedRegion).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -260,13 +267,16 @@ namespace Logship.Plex.OpenApi.Model
                             coordinates = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "european_union_member":
-                            europeanUnionMember = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                europeanUnionMember = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "in_privacy_restricted_country":
-                            inPrivacyRestrictedCountry = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                inPrivacyRestrictedCountry = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "in_privacy_restricted_region":
-                            inPrivacyRestrictedRegion = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                inPrivacyRestrictedRegion = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         default:
                             break;

@@ -58,6 +58,12 @@ namespace Logship.Plex.OpenApi.Model
         public GetDevices200ResponseMediaContainer? MediaContainer { get { return this.MediaContainerOption; } set { this.MediaContainerOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +72,7 @@ namespace Logship.Plex.OpenApi.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetDevices200Response {\n");
             sb.Append("  MediaContainer: ").Append(MediaContainer).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,7 +128,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "MediaContainer":
-                            mediaContainer = new Option<GetDevices200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetDevices200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                mediaContainer = new Option<GetDevices200ResponseMediaContainer?>(JsonSerializer.Deserialize<GetDevices200ResponseMediaContainer>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

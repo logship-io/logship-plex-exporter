@@ -123,6 +123,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Summary { get { return this.SummaryOption; } set { this.SummaryOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +141,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Duration: ").Append(Duration).Append("\n");
             sb.Append("  RatingKey: ").Append(RatingKey).Append("\n");
             sb.Append("  Summary: ").Append(Summary).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,7 +207,8 @@ namespace Logship.Plex.OpenApi.Model
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                duration = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "ratingKey":
                             ratingKey = new Option<string?>(utf8JsonReader.GetString()!);

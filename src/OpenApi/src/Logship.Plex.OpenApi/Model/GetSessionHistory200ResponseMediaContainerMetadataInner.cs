@@ -347,6 +347,12 @@ namespace Logship.Plex.OpenApi.Model
         public int? DeviceID { get { return this.DeviceIDOption; } set { this.DeviceIDOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -373,6 +379,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  ViewedAt: ").Append(ViewedAt).Append("\n");
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
             sb.Append("  DeviceID: ").Append(DeviceID).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -490,22 +497,28 @@ namespace Logship.Plex.OpenApi.Model
                             grandparentArt = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "index":
-                            index = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                index = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "parentIndex":
-                            parentIndex = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                parentIndex = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "originallyAvailableAt":
-                            originallyAvailableAt = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                originallyAvailableAt = new Option<DateOnly?>(JsonSerializer.Deserialize<DateOnly>(ref utf8JsonReader, jsonSerializerOptions));
                             break;
                         case "viewedAt":
-                            viewedAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                viewedAt = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "accountID":
-                            accountID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                accountID = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "deviceID":
-                            deviceID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                deviceID = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

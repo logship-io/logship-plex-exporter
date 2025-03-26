@@ -613,6 +613,12 @@ namespace Logship.Plex.OpenApi.Model
         public GetSessions200ResponseMediaContainerMetadataInnerSession? Session { get { return this.SessionOption; } set { this.SessionOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -658,6 +664,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("  Player: ").Append(Player).Append("\n");
             sb.Append("  Session: ").Append(Session).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -750,13 +757,15 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "addedAt":
-                            addedAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                addedAt = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "art":
                             art = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "audienceRating":
-                            audienceRating = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                audienceRating = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "audienceRatingImage":
                             audienceRatingImage = new Option<string?>(utf8JsonReader.GetString()!);
@@ -768,7 +777,8 @@ namespace Logship.Plex.OpenApi.Model
                             contentRating = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                duration = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "guid":
                             guid = new Option<string?>(utf8JsonReader.GetString()!);
@@ -816,52 +826,68 @@ namespace Logship.Plex.OpenApi.Model
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "updatedAt":
-                            updatedAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                updatedAt = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "viewOffset":
-                            viewOffset = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                viewOffset = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "year":
-                            year = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                year = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "Media":
-                            media = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                media = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "UltraBlurColors":
-                            ultraBlurColors = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerUltraBlurColorsInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerUltraBlurColorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                ultraBlurColors = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerUltraBlurColorsInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerUltraBlurColorsInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Genre":
-                            genre = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                genre = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Country":
-                            country = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                country = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerGenreInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Rating":
-                            rating = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerRatingInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerRatingInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                rating = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerRatingInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerRatingInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Director":
-                            director = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerDirectorInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerDirectorInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                director = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerDirectorInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerDirectorInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Writer":
-                            writer = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerWriterInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerWriterInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                writer = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerWriterInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerWriterInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Role":
-                            role = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerRoleInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerRoleInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                role = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerRoleInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerRoleInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Producer":
-                            producer = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerProducerInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerProducerInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                producer = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerProducerInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerProducerInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Field":
-                            field = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerFieldInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerFieldInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                field = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerFieldInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerFieldInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "User":
-                            user = new Option<GetSessions200ResponseMediaContainerMetadataInnerUser?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerUser>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                user = new Option<GetSessions200ResponseMediaContainerMetadataInnerUser?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerUser>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Player":
-                            player = new Option<GetSessions200ResponseMediaContainerMetadataInnerPlayer?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerPlayer>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                player = new Option<GetSessions200ResponseMediaContainerMetadataInnerPlayer?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerPlayer>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "Session":
-                            session = new Option<GetSessions200ResponseMediaContainerMetadataInnerSession?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerSession>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                session = new Option<GetSessions200ResponseMediaContainerMetadataInnerSession?>(JsonSerializer.Deserialize<GetSessions200ResponseMediaContainerMetadataInnerSession>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

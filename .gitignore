@@ -366,3 +366,5 @@ FodyWeavers.xsd
 
 containers/data/
 logship-agent-local-storage/
+
+out/

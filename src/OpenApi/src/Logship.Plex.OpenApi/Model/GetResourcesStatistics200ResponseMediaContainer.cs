@@ -73,6 +73,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner>? StatisticsResources { get { return this.StatisticsResourcesOption; } set { this.StatisticsResourcesOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +88,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("class GetResourcesStatistics200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  StatisticsResources: ").Append(StatisticsResources).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -138,10 +145,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "StatisticsResources":
-                            statisticsResources = new Option<List<GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner>?>(JsonSerializer.Deserialize<List<GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                statisticsResources = new Option<List<GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner>?>(JsonSerializer.Deserialize<List<GetResourcesStatistics200ResponseMediaContainerStatisticsResourcesInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

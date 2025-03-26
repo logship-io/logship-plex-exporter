@@ -553,6 +553,12 @@ namespace Logship.Plex.OpenApi.Model
         public bool? Selected { get { return this.SelectedOption; } set { this.SelectedOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -594,6 +600,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Channels: ").Append(Channels).Append("\n");
             sb.Append("  SamplingRate: ").Append(SamplingRate).Append("\n");
             sb.Append("  Selected: ").Append(Selected).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -682,10 +689,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "bitDepth":
-                            bitDepth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                bitDepth = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "bitrate":
-                            bitrate = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                bitrate = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "chromaLocation":
                             chromaLocation = new Option<string?>(utf8JsonReader.GetString()!);
@@ -697,10 +706,12 @@ namespace Logship.Plex.OpenApi.Model
                             codec = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "codedHeight":
-                            codedHeight = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                codedHeight = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "codedWidth":
-                            codedWidth = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                codedWidth = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "colorPrimaries":
                             colorPrimaries = new Option<string?>(utf8JsonReader.GetString()!);
@@ -715,7 +726,8 @@ namespace Logship.Plex.OpenApi.Model
                             colorTrc = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "default":
-                            varDefault = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                varDefault = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "displayTitle":
                             displayTitle = new Option<string?>(utf8JsonReader.GetString()!);
@@ -724,16 +736,19 @@ namespace Logship.Plex.OpenApi.Model
                             extendedDisplayTitle = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "frameRate":
-                            frameRate = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                frameRate = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "height":
-                            height = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                height = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "id":
                             id = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "index":
-                            index = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                index = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "language":
                             language = new Option<string?>(utf8JsonReader.GetString()!);
@@ -745,28 +760,33 @@ namespace Logship.Plex.OpenApi.Model
                             languageTag = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "level":
-                            level = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                level = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "original":
-                            original = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                original = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "profile":
                             profile = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "refFrames":
-                            refFrames = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                refFrames = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "scanType":
                             scanType = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "streamType":
-                            streamType = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                streamType = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "title":
                             title = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "width":
-                            width = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                width = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "location":
                             location = new Option<string?>(utf8JsonReader.GetString()!);
@@ -775,13 +795,16 @@ namespace Logship.Plex.OpenApi.Model
                             audioChannelLayout = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "channels":
-                            channels = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                channels = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "samplingRate":
-                            samplingRate = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                samplingRate = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "selected":
-                            selected = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                selected = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         default:
                             break;

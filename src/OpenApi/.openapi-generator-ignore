@@ -21,3 +21,11 @@
 #docs/*.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
+
+.gitignore
+api/
+docs/
+src/*.Test/
+**/*.csproj
+*.sln
+appveyor.yml

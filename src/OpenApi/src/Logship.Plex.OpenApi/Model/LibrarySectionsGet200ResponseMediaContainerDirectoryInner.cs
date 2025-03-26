@@ -123,6 +123,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Scanner { get { return this.ScannerOption; } set { this.ScannerOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +141,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Agent: ").Append(Agent).Append("\n");
             sb.Append("  Scanner: ").Append(Scanner).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

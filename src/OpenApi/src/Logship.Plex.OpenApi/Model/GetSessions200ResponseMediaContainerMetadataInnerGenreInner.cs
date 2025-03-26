@@ -103,6 +103,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Tag { get { return this.TagOption; } set { this.TagOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +120,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Tag: ").Append(Tag).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

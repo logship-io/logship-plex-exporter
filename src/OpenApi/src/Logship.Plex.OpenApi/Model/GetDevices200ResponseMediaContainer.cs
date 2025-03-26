@@ -90,6 +90,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetDevices200ResponseMediaContainerDeviceInner>? Device { get { return this.DeviceOption; } set { this.DeviceOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -100,6 +106,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("  Device: ").Append(Device).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -157,13 +164,15 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "identifier":
                             identifier = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "Device":
-                            device = new Option<List<GetDevices200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetDevices200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                device = new Option<List<GetDevices200ResponseMediaContainerDeviceInner>?>(JsonSerializer.Deserialize<List<GetDevices200ResponseMediaContainerDeviceInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

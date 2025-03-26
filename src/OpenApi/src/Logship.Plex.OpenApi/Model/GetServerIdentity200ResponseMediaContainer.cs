@@ -104,6 +104,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? VarVersion { get { return this.VarVersionOption; } set { this.VarVersionOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +121,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Claimed: ").Append(Claimed).Append("\n");
             sb.Append("  MachineIdentifier: ").Append(MachineIdentifier).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,10 +180,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "claimed":
-                            claimed = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                claimed = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "machineIdentifier":
                             machineIdentifier = new Option<string?>(utf8JsonReader.GetString()!);

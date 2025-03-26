@@ -139,6 +139,12 @@ namespace Logship.Plex.OpenApi.Model
         public long? Bytes { get { return this.BytesOption; } set { this.BytesOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +158,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  At: ").Append(At).Append("\n");
             sb.Append("  Lan: ").Append(Lan).Append("\n");
             sb.Append("  Bytes: ").Append(Bytes).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -212,22 +219,28 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "accountID":
-                            accountID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                accountID = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "deviceID":
-                            deviceID = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                deviceID = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "timespan":
-                            timespan = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                timespan = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "at":
-                            at = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                at = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "lan":
-                            lan = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                lan = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "bytes":
-                            bytes = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                bytes = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

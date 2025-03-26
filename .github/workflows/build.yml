@@ -23,12 +23,12 @@ jobs:
             os: windows-latest
           - runtime: linux-x64
             os: ubuntu-latest
-          # - runtime: linux-arm64
-          #   os: ubuntu-latest
-          - os: macos-latest
-            runtime: osx-x64
-          - os: macos-latest
-            runtime: osx-arm64
+          - runtime: linux-arm64
+            os: ubuntu-22.04-arm
+          - runtime: osx-x64
+            os: macos-latest
+          - runtime: osx-arm64
+            os: macos-latest
           
     name: Build
     runs-on: ${{ matrix.os }}
@@ -64,7 +64,6 @@ jobs:
             *.zip
   
   container-release:
-    if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,9 +75,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & Push OCI Image
+      - name: Build OCI Image
         run: |
           podman build . --file Containerfile --tag ghcr.io/${{ github.repository }}:$GITHUB_REF_NAME
+      
+      - name: Push OCI Image
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
           podman tag ghcr.io/${{ github.repository }}:$GITHUB_REF_NAME ghcr.io/${{ github.repository }}:latest
           podman push ghcr.io/${{ github.repository }}:$GITHUB_REF_NAME
           podman push ghcr.io/${{ github.repository }}:latest

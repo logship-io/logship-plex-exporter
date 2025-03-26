@@ -74,6 +74,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner>? TranscodeSession { get { return this.TranscodeSessionOption; } set { this.TranscodeSessionOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +89,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("class GetTranscodeSessions200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  TranscodeSession: ").Append(TranscodeSession).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,10 +146,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "TranscodeSession":
-                            transcodeSession = new Option<List<GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner>?>(JsonSerializer.Deserialize<List<GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                transcodeSession = new Option<List<GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner>?>(JsonSerializer.Deserialize<List<GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

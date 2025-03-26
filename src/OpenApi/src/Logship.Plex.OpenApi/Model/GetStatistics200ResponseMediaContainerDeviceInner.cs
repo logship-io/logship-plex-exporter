@@ -123,6 +123,12 @@ namespace Logship.Plex.OpenApi.Model
         public int? CreatedAt { get { return this.CreatedAtOption; } set { this.CreatedAtOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +141,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  ClientIdentifier: ").Append(ClientIdentifier).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -194,7 +201,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                id = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "name":
                             name = new Option<string?>(utf8JsonReader.GetString()!);
@@ -206,7 +214,8 @@ namespace Logship.Plex.OpenApi.Model
                             clientIdentifier = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "createdAt":
-                            createdAt = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                createdAt = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         default:
                             break;

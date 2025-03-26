@@ -163,6 +163,12 @@ namespace Logship.Plex.OpenApi.Model
         public GetServerActivities200ResponseMediaContainerActivityInnerContext? Context { get { return this.ContextOption; } set { this.ContextOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -178,6 +184,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Subtitle: ").Append(Subtitle).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  Context: ").Append(Context).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -246,10 +253,12 @@ namespace Logship.Plex.OpenApi.Model
                             type = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "cancellable":
-                            cancellable = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                cancellable = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "userID":
-                            userID = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                userID = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "title":
                             title = new Option<string?>(utf8JsonReader.GetString()!);
@@ -258,10 +267,12 @@ namespace Logship.Plex.OpenApi.Model
                             subtitle = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "progress":
-                            progress = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                progress = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "Context":
-                            context = new Option<GetServerActivities200ResponseMediaContainerActivityInnerContext?>(JsonSerializer.Deserialize<GetServerActivities200ResponseMediaContainerActivityInnerContext>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                context = new Option<GetServerActivities200ResponseMediaContainerActivityInnerContext?>(JsonSerializer.Deserialize<GetServerActivities200ResponseMediaContainerActivityInnerContext>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

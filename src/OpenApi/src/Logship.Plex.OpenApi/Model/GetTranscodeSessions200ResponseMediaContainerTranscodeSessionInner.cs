@@ -426,6 +426,12 @@ namespace Logship.Plex.OpenApi.Model
         public decimal? MinOffsetAvailable { get { return this.MinOffsetAvailableOption; } set { this.MinOffsetAvailableOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -457,6 +463,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  TimeStamp: ").Append(TimeStamp).Append("\n");
             sb.Append("  MaxOffsetAvailable: ").Append(MaxOffsetAvailable).Append("\n");
             sb.Append("  MinOffsetAvailable: ").Append(MinOffsetAvailable).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -538,28 +545,36 @@ namespace Logship.Plex.OpenApi.Model
                             key = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "throttled":
-                            throttled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                throttled = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "complete":
-                            complete = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                complete = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "progress":
-                            progress = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                progress = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "size":
-                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "speed":
-                            speed = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                speed = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "error":
-                            error = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                error = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "duration":
-                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                duration = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "remaining":
-                            remaining = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                remaining = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "context":
                             context = new Option<string?>(utf8JsonReader.GetString()!);
@@ -592,19 +607,24 @@ namespace Logship.Plex.OpenApi.Model
                             audioCodec = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "audioChannels":
-                            audioChannels = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                audioChannels = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "transcodeHwRequested":
-                            transcodeHwRequested = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                transcodeHwRequested = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "timeStamp":
-                            timeStamp = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                timeStamp = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "maxOffsetAvailable":
-                            maxOffsetAvailable = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                maxOffsetAvailable = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "minOffsetAvailable":
-                            minOffsetAvailable = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                minOffsetAvailable = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         default:
                             break;

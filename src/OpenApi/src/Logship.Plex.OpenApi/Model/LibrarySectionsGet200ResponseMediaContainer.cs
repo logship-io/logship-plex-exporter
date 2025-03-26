@@ -75,6 +75,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<LibrarySectionsGet200ResponseMediaContainerDirectoryInner>? Directory { get { return this.DirectoryOption; } set { this.DirectoryOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +90,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("class LibrarySectionsGet200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Directory: ").Append(Directory).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,10 +147,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "Directory":
-                            directory = new Option<List<LibrarySectionsGet200ResponseMediaContainerDirectoryInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsGet200ResponseMediaContainerDirectoryInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                directory = new Option<List<LibrarySectionsGet200ResponseMediaContainerDirectoryInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsGet200ResponseMediaContainerDirectoryInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

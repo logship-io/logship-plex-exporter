@@ -219,6 +219,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? ProtocolCapabilities { get { return this.ProtocolCapabilitiesOption; } set { this.ProtocolCapabilitiesOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -237,6 +243,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  DeviceClass: ").Append(DeviceClass).Append("\n");
             sb.Append("  ProtocolVersion: ").Append(ProtocolVersion).Append("\n");
             sb.Append("  ProtocolCapabilities: ").Append(ProtocolCapabilities).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -311,7 +318,8 @@ namespace Logship.Plex.OpenApi.Model
                             address = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "port":
-                            port = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                port = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "machineIdentifier":
                             machineIdentifier = new Option<string?>(utf8JsonReader.GetString()!);

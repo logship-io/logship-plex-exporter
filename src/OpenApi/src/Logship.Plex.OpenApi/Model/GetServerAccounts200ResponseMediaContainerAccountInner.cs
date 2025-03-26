@@ -170,6 +170,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Thumb { get { return this.ThumbOption; } set { this.ThumbOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +191,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  DefaultSubtitleLanguage: ").Append(DefaultSubtitleLanguage).Append("\n");
             sb.Append("  SubtitleMode: ").Append(SubtitleMode).Append("\n");
             sb.Append("  Thumb: ").Append(Thumb).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,7 +254,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "id":
-                            id = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                id = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "key":
                             key = new Option<string?>(utf8JsonReader.GetString()!);
@@ -259,13 +267,15 @@ namespace Logship.Plex.OpenApi.Model
                             defaultAudioLanguage = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "autoSelectAudio":
-                            autoSelectAudio = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                autoSelectAudio = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "defaultSubtitleLanguage":
                             defaultSubtitleLanguage = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "subtitleMode":
-                            subtitleMode = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                subtitleMode = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "thumb":
                             thumb = new Option<string?>(utf8JsonReader.GetString()!);

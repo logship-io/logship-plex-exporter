@@ -74,6 +74,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetAvailableClients200ResponseMediaContainerServerInner>? Server { get { return this.ServerOption; } set { this.ServerOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +89,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("class GetAvailableClients200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Server: ").Append(Server).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -139,10 +146,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "Server":
-                            server = new Option<List<GetAvailableClients200ResponseMediaContainerServerInner>?>(JsonSerializer.Deserialize<List<GetAvailableClients200ResponseMediaContainerServerInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                server = new Option<List<GetAvailableClients200ResponseMediaContainerServerInner>?>(JsonSerializer.Deserialize<List<GetAvailableClients200ResponseMediaContainerServerInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

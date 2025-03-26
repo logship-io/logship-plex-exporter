@@ -75,6 +75,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>? Metadata { get { return this.MetadataOption; } set { this.MetadataOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +90,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("class LibrarySectionsLibraryKeyAllGet200ResponseMediaContainer {\n");
             sb.Append("  Size: ").Append(Size).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,10 +147,12 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "size":
-                            size = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "Metadata":
-                            metadata = new Option<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                metadata = new Option<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>?>(JsonSerializer.Deserialize<List<LibrarySectionsLibraryKeyAllGet200ResponseMediaContainerMetadataInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

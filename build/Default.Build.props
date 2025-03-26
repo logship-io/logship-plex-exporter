@@ -2,21 +2,20 @@
   <PropertyGroup>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <SrcRoot>$(RepoRoot)src</SrcRoot>
     <BuildRoot>$(RepoRoot)build</BuildRoot>
     <TreatWarningsAsErrors Condition="'$(TreatWarningsAsErrors)' == ''">True</TreatWarningsAsErrors>
     <CentralPackagesFile>$(BuildRoot)\packages\Packages.props</CentralPackagesFile>
     <NoWarn>$(NoWarn)</NoWarn>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
-  
+
   <PropertyGroup>
     <NetCoreVersion>net9.0</NetCoreVersion>
     <NetStandardVersion>netstandard2.0</NetStandardVersion>
     <RuntimeIdentifiers>linux-x64;win-x64</RuntimeIdentifiers>
-    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+    <IsAotCompatible>true</IsAotCompatible>
     <AnalysisLevel>latest-Recommended</AnalysisLevel>
   </PropertyGroup>
   <Import Project="$(MSBuildThisFileDirectory)\slngen\slngen.props" />

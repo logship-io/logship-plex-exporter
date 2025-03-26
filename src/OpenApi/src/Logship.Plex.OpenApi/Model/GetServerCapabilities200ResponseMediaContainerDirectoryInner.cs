@@ -88,6 +88,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Title { get { return this.TitleOption; } set { this.TitleOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +104,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Count: ").Append(Count).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,7 +162,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "count":
-                            count = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                count = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "key":
                             key = new Option<string?>(utf8JsonReader.GetString()!);

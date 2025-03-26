@@ -14,7 +14,10 @@
     <LanguageVersion>$(CSharpVersion)</LanguageVersion>
     <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
     <TrimMode>full</TrimMode>
+    <NoWarn>IL3050</NoWarn>
     <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+    <IsAotCompatible>true</IsAotCompatible>
+    <SuppressTrimAnalysisWarnings>true</SuppressTrimAnalysisWarnings>
   </PropertyGroup>
 
   <ItemGroup>

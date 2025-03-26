@@ -137,6 +137,12 @@ namespace Logship.Plex.OpenApi.Model
         public string? Description { get { return this.DescriptionOption; } set { this.DescriptionOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -150,6 +156,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -213,13 +220,16 @@ namespace Logship.Plex.OpenApi.Model
                             name = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "interval":
-                            interval = new Option<decimal?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (decimal?)null : utf8JsonReader.GetDecimal());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                interval = new Option<decimal?>(utf8JsonReader.GetDecimal());
                             break;
                         case "scheduleRandomized":
-                            scheduleRandomized = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                scheduleRandomized = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "enabled":
-                            enabled = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                enabled = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "title":
                             title = new Option<string?>(utf8JsonReader.GetString()!);

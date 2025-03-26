@@ -193,6 +193,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>? Stream { get { return this.StreamOption; } set { this.StreamOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -210,6 +216,7 @@ namespace Logship.Plex.OpenApi.Model
             sb.Append("  Decision: ").Append(Decision).Append("\n");
             sb.Append("  Selected: ").Append(Selected).Append("\n");
             sb.Append("  Stream: ").Append(Stream).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,7 +284,8 @@ namespace Logship.Plex.OpenApi.Model
                             container = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "duration":
-                            duration = new Option<int?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (int?)null : utf8JsonReader.GetInt32());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                duration = new Option<int?>(utf8JsonReader.GetInt32());
                             break;
                         case "file":
                             file = new Option<string?>(utf8JsonReader.GetString()!);
@@ -289,7 +297,8 @@ namespace Logship.Plex.OpenApi.Model
                             key = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "size":
-                            size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                size = new Option<long?>(JsonSerializer.Deserialize<long>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         case "videoProfile":
                             videoProfile = new Option<string?>(utf8JsonReader.GetString()!);
@@ -298,10 +307,12 @@ namespace Logship.Plex.OpenApi.Model
                             decision = new Option<string?>(utf8JsonReader.GetString()!);
                             break;
                         case "selected":
-                            selected = new Option<bool?>(utf8JsonReader.TokenType == JsonTokenType.Null ? (bool?)null : utf8JsonReader.GetBoolean());
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                selected = new Option<bool?>(utf8JsonReader.GetBoolean());
                             break;
                         case "Stream":
-                            stream = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                stream = new Option<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>?>(JsonSerializer.Deserialize<List<GetSessions200ResponseMediaContainerMetadataInnerMediaInnerPartInnerStreamInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;

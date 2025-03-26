@@ -58,6 +58,12 @@ namespace Logship.Plex.OpenApi.Model
         public List<GetButlerTasks200ResponseButlerTasksButlerTaskInner>? ButlerTask { get { return this.ButlerTaskOption; } set { this.ButlerTaskOption = new(value); } }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public Dictionary<string, JsonElement> AdditionalProperties { get; } = new Dictionary<string, JsonElement>();
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -66,6 +72,7 @@ namespace Logship.Plex.OpenApi.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class GetButlerTasks200ResponseButlerTasks {\n");
             sb.Append("  ButlerTask: ").Append(ButlerTask).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,7 +128,8 @@ namespace Logship.Plex.OpenApi.Model
                     switch (localVarJsonPropertyName)
                     {
                         case "ButlerTask":
-                            butlerTask = new Option<List<GetButlerTasks200ResponseButlerTasksButlerTaskInner>?>(JsonSerializer.Deserialize<List<GetButlerTasks200ResponseButlerTasksButlerTaskInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
+                            if (utf8JsonReader.TokenType != JsonTokenType.Null)
+                                butlerTask = new Option<List<GetButlerTasks200ResponseButlerTasksButlerTaskInner>?>(JsonSerializer.Deserialize<List<GetButlerTasks200ResponseButlerTasksButlerTaskInner>>(ref utf8JsonReader, jsonSerializerOptions)!);
                             break;
                         default:
                             break;
