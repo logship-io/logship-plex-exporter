@@ -30,6 +30,7 @@ namespace Logship.Plex.Utility.Services
                 {
                     var data = new Dictionary<string, object?>()
                     {
+                        ["Id"] = account.Id,
                         ["Name"] = account.Name,
                         ["Key"] = account.Key,
                         ["SubtitleMode"] = account.SubtitleMode,
