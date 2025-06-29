@@ -104,6 +104,9 @@ namespace Logship.Plex.OpenApi.Client
             _jsonOptions.Converters.Add(new GetTranscodeSessions200ResponseJsonConverter());
             _jsonOptions.Converters.Add(new GetTranscodeSessions200ResponseMediaContainerJsonConverter());
             _jsonOptions.Converters.Add(new GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInnerJsonConverter());
+            _jsonOptions.Converters.Add(new LibraryMetadataMetadataIdChildrenGet200ResponseJsonConverter());
+            _jsonOptions.Converters.Add(new LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainerJsonConverter());
+            _jsonOptions.Converters.Add(new LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainerMetadataInnerJsonConverter());
             _jsonOptions.Converters.Add(new LibrarySectionsGet200ResponseJsonConverter());
             _jsonOptions.Converters.Add(new LibrarySectionsGet200ResponseMediaContainerJsonConverter());
             _jsonOptions.Converters.Add(new LibrarySectionsGet200ResponseMediaContainerDirectoryInnerJsonConverter());
@@ -175,6 +178,9 @@ namespace Logship.Plex.OpenApi.Client
                 new GetTranscodeSessions200ResponseSerializationContext(),
                 new GetTranscodeSessions200ResponseMediaContainerSerializationContext(),
                 new GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInnerSerializationContext(),
+                new LibraryMetadataMetadataIdChildrenGet200ResponseSerializationContext(),
+                new LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainerSerializationContext(),
+                new LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainerMetadataInnerSerializationContext(),
                 new LibrarySectionsGet200ResponseSerializationContext(),
                 new LibrarySectionsGet200ResponseMediaContainerSerializationContext(),
                 new LibrarySectionsGet200ResponseMediaContainerDirectoryInnerSerializationContext(),

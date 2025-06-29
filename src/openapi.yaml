@@ -945,6 +945,81 @@ paths:
           description: Unauthorized. Invalid or missing Plex token.
         "500":
           description: Server error.
+  "/library/metadata/{metadataId}/children":
+    get:
+      tags:
+        - Library
+      summary: Get Children of Media Item
+      description: Get the children of a media item (seasons for TV shows, episodes for seasons, etc.)
+      parameters:
+        - name: metadataId
+          in: path
+          required: true
+          description: Rating key for the media item
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  MediaContainer:
+                    type: object
+                    properties:
+                      size:
+                        type: integer
+                        description: Number of child items
+                      Metadata:
+                        type: array
+                        description: List of child media items
+                        items:
+                          type: object
+                          properties:
+                            title:
+                              type: string
+                              description: Title of the media item
+                            type:
+                              type: string
+                              description: Media type (e.g., season, episode)
+                            duration:
+                              type: integer
+                              description: Duration of the media item in milliseconds
+                            ratingKey:
+                              type: string
+                              description: Unique rating key for the item
+                            summary:
+                              type: string
+                              description: Description or summary of the media item
+                            index:
+                              type: integer
+                              description: Index number (season/episode number)
+                            parentIndex:
+                              type: integer
+                              description: Parent index number
+                            year:
+                              type: integer
+                              description: Year the media was released
+                            parentRatingKey:
+                              type: string
+                              description: Rating key of the parent item
+                            grandparentRatingKey:
+                              type: string
+                              description: Rating key of the grandparent item
+                            parentTitle:
+                              type: string
+                              description: Title of the parent item
+                            grandparentTitle:
+                              type: string
+                              description: Title of the grandparent item
+        "404":
+          description: Media item not found
+        "401":
+          description: Unauthorized. Invalid or missing Plex token.
+        "500":
+          description: Server error.
   "/statistics/media":
     get:
       tags:

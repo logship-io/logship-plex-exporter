@@ -90,6 +90,9 @@ src/Logship.Plex.OpenApi/Model/GetStatistics200ResponseMediaContainerStatisticsM
 src/Logship.Plex.OpenApi/Model/GetTranscodeSessions200Response.cs
 src/Logship.Plex.OpenApi/Model/GetTranscodeSessions200ResponseMediaContainer.cs
 src/Logship.Plex.OpenApi/Model/GetTranscodeSessions200ResponseMediaContainerTranscodeSessionInner.cs
+src/Logship.Plex.OpenApi/Model/LibraryMetadataMetadataIdChildrenGet200Response.cs
+src/Logship.Plex.OpenApi/Model/LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainer.cs
+src/Logship.Plex.OpenApi/Model/LibraryMetadataMetadataIdChildrenGet200ResponseMediaContainerMetadataInner.cs
 src/Logship.Plex.OpenApi/Model/LibrarySectionsGet200Response.cs
 src/Logship.Plex.OpenApi/Model/LibrarySectionsGet200ResponseMediaContainer.cs
 src/Logship.Plex.OpenApi/Model/LibrarySectionsGet200ResponseMediaContainerDirectoryInner.cs

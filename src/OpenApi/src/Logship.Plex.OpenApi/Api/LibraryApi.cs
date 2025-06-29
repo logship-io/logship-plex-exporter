@@ -36,6 +36,29 @@ namespace Logship.Plex.OpenApi.Api
         LibraryApiEvents Events { get; }
 
         /// <summary>
+        /// Get Children of Media Item
+        /// </summary>
+        /// <remarks>
+        /// Get the children of a media item (seasons for TV shows, episodes for seasons, etc.)
+        /// </remarks>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataId">Rating key for the media item</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILibraryMetadataMetadataIdChildrenGetApiResponse"/>&gt;</returns>
+        Task<ILibraryMetadataMetadataIdChildrenGetApiResponse> LibraryMetadataMetadataIdChildrenGetAsync(string metadataId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Children of Media Item
+        /// </summary>
+        /// <remarks>
+        /// Get the children of a media item (seasons for TV shows, episodes for seasons, etc.)
+        /// </remarks>
+        /// <param name="metadataId">Rating key for the media item</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILibraryMetadataMetadataIdChildrenGetApiResponse"/>?&gt;</returns>
+        Task<ILibraryMetadataMetadataIdChildrenGetApiResponse?> LibraryMetadataMetadataIdChildrenGetOrDefaultAsync(string metadataId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Get Media Libraries
         /// </summary>
         /// <remarks>
@@ -78,6 +101,36 @@ namespace Logship.Plex.OpenApi.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ILibrarySectionsLibraryKeyAllGetApiResponse"/>?&gt;</returns>
         Task<ILibrarySectionsLibraryKeyAllGetApiResponse?> LibrarySectionsLibraryKeyAllGetOrDefaultAsync(string libraryKey, System.Threading.CancellationToken cancellationToken = default);
+    }
+
+    /// <summary>
+    /// The <see cref="ILibraryMetadataMetadataIdChildrenGetApiResponse"/>
+    /// </summary>
+    public interface ILibraryMetadataMetadataIdChildrenGetApiResponse : Logship.Plex.OpenApi.Client.IApiResponse, IOk<Logship.Plex.OpenApi.Model.LibraryMetadataMetadataIdChildrenGet200Response?>
+    {
+        /// <summary>
+        /// Returns true if the response is 200 Ok
+        /// </summary>
+        /// <returns></returns>
+        bool IsOk { get; }
+
+        /// <summary>
+        /// Returns true if the response is 404 NotFound
+        /// </summary>
+        /// <returns></returns>
+        bool IsNotFound { get; }
+
+        /// <summary>
+        /// Returns true if the response is 401 Unauthorized
+        /// </summary>
+        /// <returns></returns>
+        bool IsUnauthorized { get; }
+
+        /// <summary>
+        /// Returns true if the response is 500 InternalServerError
+        /// </summary>
+        /// <returns></returns>
+        bool IsInternalServerError { get; }
     }
 
     /// <summary>
@@ -139,6 +192,26 @@ namespace Logship.Plex.OpenApi.Api
     /// </summary>
     public class LibraryApiEvents
     {
+        /// <summary>
+        /// The event raised after the server response
+        /// </summary>
+        public event EventHandler<ApiResponseEventArgs>? OnLibraryMetadataMetadataIdChildrenGet;
+
+        /// <summary>
+        /// The event raised after an error querying the server
+        /// </summary>
+        public event EventHandler<ExceptionEventArgs>? OnErrorLibraryMetadataMetadataIdChildrenGet;
+
+        internal void ExecuteOnLibraryMetadataMetadataIdChildrenGet(LibraryApi.LibraryMetadataMetadataIdChildrenGetApiResponse apiResponse)
+        {
+            OnLibraryMetadataMetadataIdChildrenGet?.Invoke(this, new ApiResponseEventArgs(apiResponse));
+        }
+
+        internal void ExecuteOnErrorLibraryMetadataMetadataIdChildrenGet(Exception exception)
+        {
+            OnErrorLibraryMetadataMetadataIdChildrenGet?.Invoke(this, new ExceptionEventArgs(exception));
+        }
+
         /// <summary>
         /// The event raised after the server response
         /// </summary>
@@ -225,6 +298,255 @@ namespace Logship.Plex.OpenApi.Api
             HttpClient = httpClient;
             Events = libraryApiEvents;
             ApiKeyProvider = apiKeyProvider;
+        }
+
+        partial void FormatLibraryMetadataMetadataIdChildrenGet(ref string metadataId);
+
+        /// <summary>
+        /// Validates the request parameters
+        /// </summary>
+        /// <param name="metadataId"></param>
+        /// <returns></returns>
+        private void ValidateLibraryMetadataMetadataIdChildrenGet(string metadataId)
+        {
+            if (metadataId == null)
+                throw new ArgumentNullException(nameof(metadataId));
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="metadataId"></param>
+        private void AfterLibraryMetadataMetadataIdChildrenGetDefaultImplementation(ILibraryMetadataMetadataIdChildrenGetApiResponse apiResponseLocalVar, string metadataId)
+        {
+            bool suppressDefaultLog = false;
+            AfterLibraryMetadataMetadataIdChildrenGet(ref suppressDefaultLog, apiResponseLocalVar, metadataId);
+            if (!suppressDefaultLog)
+                Logger.LogInformation("{0,-9} | {1} | {3}", (apiResponseLocalVar.DownloadedAt - apiResponseLocalVar.RequestedAt).TotalSeconds, apiResponseLocalVar.StatusCode, apiResponseLocalVar.Path);
+        }
+
+        /// <summary>
+        /// Processes the server response
+        /// </summary>
+        /// <param name="suppressDefaultLog"></param>
+        /// <param name="apiResponseLocalVar"></param>
+        /// <param name="metadataId"></param>
+        partial void AfterLibraryMetadataMetadataIdChildrenGet(ref bool suppressDefaultLog, ILibraryMetadataMetadataIdChildrenGetApiResponse apiResponseLocalVar, string metadataId);
+
+        /// <summary>
+        /// Logs exceptions that occur while retrieving the server response
+        /// </summary>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="metadataId"></param>
+        private void OnErrorLibraryMetadataMetadataIdChildrenGetDefaultImplementation(Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string metadataId)
+        {
+            bool suppressDefaultLogLocalVar = false;
+            OnErrorLibraryMetadataMetadataIdChildrenGet(ref suppressDefaultLogLocalVar, exceptionLocalVar, pathFormatLocalVar, pathLocalVar, metadataId);
+            if (!suppressDefaultLogLocalVar)
+                Logger.LogError(exceptionLocalVar, "An error occurred while sending the request to the server.");
+        }
+
+        /// <summary>
+        /// A partial method that gives developers a way to provide customized exception handling
+        /// </summary>
+        /// <param name="suppressDefaultLogLocalVar"></param>
+        /// <param name="exceptionLocalVar"></param>
+        /// <param name="pathFormatLocalVar"></param>
+        /// <param name="pathLocalVar"></param>
+        /// <param name="metadataId"></param>
+        partial void OnErrorLibraryMetadataMetadataIdChildrenGet(ref bool suppressDefaultLogLocalVar, Exception exceptionLocalVar, string pathFormatLocalVar, string pathLocalVar, string metadataId);
+
+        /// <summary>
+        /// Get Children of Media Item Get the children of a media item (seasons for TV shows, episodes for seasons, etc.)
+        /// </summary>
+        /// <param name="metadataId">Rating key for the media item</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILibraryMetadataMetadataIdChildrenGetApiResponse"/>&gt;</returns>
+        public async Task<ILibraryMetadataMetadataIdChildrenGetApiResponse?> LibraryMetadataMetadataIdChildrenGetOrDefaultAsync(string metadataId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            try
+            {
+                return await LibraryMetadataMetadataIdChildrenGetAsync(metadataId, cancellationToken).ConfigureAwait(false);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Get Children of Media Item Get the children of a media item (seasons for TV shows, episodes for seasons, etc.)
+        /// </summary>
+        /// <exception cref="ApiException">Thrown when fails to make API call</exception>
+        /// <param name="metadataId">Rating key for the media item</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns><see cref="Task"/>&lt;<see cref="ILibraryMetadataMetadataIdChildrenGetApiResponse"/>&gt;</returns>
+        public async Task<ILibraryMetadataMetadataIdChildrenGetApiResponse> LibraryMetadataMetadataIdChildrenGetAsync(string metadataId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            UriBuilder uriBuilderLocalVar = new UriBuilder();
+
+            try
+            {
+                ValidateLibraryMetadataMetadataIdChildrenGet(metadataId);
+
+                FormatLibraryMetadataMetadataIdChildrenGet(ref metadataId);
+
+                using (HttpRequestMessage httpRequestMessageLocalVar = new HttpRequestMessage())
+                {
+                    uriBuilderLocalVar.Host = HttpClient.BaseAddress!.Host;
+                    uriBuilderLocalVar.Port = HttpClient.BaseAddress.Port;
+                    uriBuilderLocalVar.Scheme = HttpClient.BaseAddress.Scheme;
+                    uriBuilderLocalVar.Path = ClientUtils.CONTEXT_PATH + "/library/metadata/{metadataId}/children";
+                    uriBuilderLocalVar.Path = uriBuilderLocalVar.Path.Replace("%7BmetadataId%7D", Uri.EscapeDataString(metadataId.ToString()));
+
+                    System.Collections.Specialized.NameValueCollection parseQueryStringLocalVar = System.Web.HttpUtility.ParseQueryString(string.Empty);
+
+                    List<TokenBase> tokenBaseLocalVars = new List<TokenBase>();
+                    ApiKeyToken apiKeyTokenLocalVar1 = (ApiKeyToken) await ApiKeyProvider.GetAsync("X-Plex-Token", cancellationToken).ConfigureAwait(false);
+                    tokenBaseLocalVars.Add(apiKeyTokenLocalVar1);
+
+                    apiKeyTokenLocalVar1.UseInQuery(httpRequestMessageLocalVar, uriBuilderLocalVar, parseQueryStringLocalVar);
+
+                    uriBuilderLocalVar.Query = parseQueryStringLocalVar.ToString();
+                    httpRequestMessageLocalVar.RequestUri = uriBuilderLocalVar.Uri;
+
+                    string[] acceptLocalVars = new string[] {
+                        "application/json"
+                    };
+
+                    string? acceptLocalVar = ClientUtils.SelectHeaderAccept(acceptLocalVars);
+
+                    if (acceptLocalVar != null)
+                        httpRequestMessageLocalVar.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(acceptLocalVar));
+
+                    httpRequestMessageLocalVar.Method = HttpMethod.Get;
+
+                    DateTime requestedAtLocalVar = DateTime.UtcNow;
+
+                    using (HttpResponseMessage httpResponseMessageLocalVar = await HttpClient.SendAsync(httpRequestMessageLocalVar, cancellationToken).ConfigureAwait(false))
+                    {
+                        string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
+
+                        ILogger<LibraryMetadataMetadataIdChildrenGetApiResponse> apiResponseLoggerLocalVar = LoggerFactory.CreateLogger<LibraryMetadataMetadataIdChildrenGetApiResponse>();
+
+                        LibraryMetadataMetadataIdChildrenGetApiResponse apiResponseLocalVar = new(apiResponseLoggerLocalVar, httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/library/metadata/{metadataId}/children", requestedAtLocalVar, _jsonSerializerOptions);
+
+                        AfterLibraryMetadataMetadataIdChildrenGetDefaultImplementation(apiResponseLocalVar, metadataId);
+
+                        Events.ExecuteOnLibraryMetadataMetadataIdChildrenGet(apiResponseLocalVar);
+
+                        if (apiResponseLocalVar.StatusCode == (HttpStatusCode) 429)
+                            foreach(TokenBase tokenBaseLocalVar in tokenBaseLocalVars)
+                                tokenBaseLocalVar.BeginRateLimit();
+
+                        return apiResponseLocalVar;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                OnErrorLibraryMetadataMetadataIdChildrenGetDefaultImplementation(e, "/library/metadata/{metadataId}/children", uriBuilderLocalVar.Path, metadataId);
+                Events.ExecuteOnErrorLibraryMetadataMetadataIdChildrenGet(e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// The <see cref="LibraryMetadataMetadataIdChildrenGetApiResponse"/>
+        /// </summary>
+        public partial class LibraryMetadataMetadataIdChildrenGetApiResponse : Logship.Plex.OpenApi.Client.ApiResponse, ILibraryMetadataMetadataIdChildrenGetApiResponse
+        {
+            /// <summary>
+            /// The logger
+            /// </summary>
+            public ILogger<LibraryMetadataMetadataIdChildrenGetApiResponse> Logger { get; }
+
+            /// <summary>
+            /// The <see cref="LibraryMetadataMetadataIdChildrenGetApiResponse"/>
+            /// </summary>
+            /// <param name="logger"></param>
+            /// <param name="httpRequestMessage"></param>
+            /// <param name="httpResponseMessage"></param>
+            /// <param name="rawContent"></param>
+            /// <param name="path"></param>
+            /// <param name="requestedAt"></param>
+            /// <param name="jsonSerializerOptions"></param>
+            public LibraryMetadataMetadataIdChildrenGetApiResponse(ILogger<LibraryMetadataMetadataIdChildrenGetApiResponse> logger, System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage, string rawContent, string path, DateTime requestedAt, System.Text.Json.JsonSerializerOptions jsonSerializerOptions) : base(httpRequestMessage, httpResponseMessage, rawContent, path, requestedAt, jsonSerializerOptions)
+            {
+                Logger = logger;
+                OnCreated(httpRequestMessage, httpResponseMessage);
+            }
+
+            partial void OnCreated(global::System.Net.Http.HttpRequestMessage httpRequestMessage, System.Net.Http.HttpResponseMessage httpResponseMessage);
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public bool IsOk => 200 == (int)StatusCode;
+
+            /// <summary>
+            /// Deserializes the response if the response is 200 Ok
+            /// </summary>
+            /// <returns></returns>
+            public Logship.Plex.OpenApi.Model.LibraryMetadataMetadataIdChildrenGet200Response? Ok()
+            {
+                // This logic may be modified with the AsModel.mustache template
+                return IsOk
+                    ? System.Text.Json.JsonSerializer.Deserialize<Logship.Plex.OpenApi.Model.LibraryMetadataMetadataIdChildrenGet200Response>(RawContent, _jsonSerializerOptions)
+                    : null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 200 Ok and the deserialized response is not null
+            /// </summary>
+            /// <param name="result"></param>
+            /// <returns></returns>
+            public bool TryOk([NotNullWhen(true)]out Logship.Plex.OpenApi.Model.LibraryMetadataMetadataIdChildrenGet200Response? result)
+            {
+                result = null;
+
+                try
+                {
+                    result = Ok();
+                } catch (Exception e)
+                {
+                    OnDeserializationErrorDefaultImplementation(e, (HttpStatusCode)200);
+                }
+
+                return result != null;
+            }
+
+            /// <summary>
+            /// Returns true if the response is 404 NotFound
+            /// </summary>
+            /// <returns></returns>
+            public bool IsNotFound => 404 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 401 Unauthorized
+            /// </summary>
+            /// <returns></returns>
+            public bool IsUnauthorized => 401 == (int)StatusCode;
+
+            /// <summary>
+            /// Returns true if the response is 500 InternalServerError
+            /// </summary>
+            /// <returns></returns>
+            public bool IsInternalServerError => 500 == (int)StatusCode;
+
+            private void OnDeserializationErrorDefaultImplementation(Exception exception, HttpStatusCode httpStatusCode)
+            {
+                bool suppressDefaultLog = false;
+                OnDeserializationError(ref suppressDefaultLog, exception, httpStatusCode);
+                if (!suppressDefaultLog)
+                    Logger.LogError(exception, "An error occurred while deserializing the {code} response.", httpStatusCode);
+            }
+
+            partial void OnDeserializationError(ref bool suppressDefaultLog, Exception exception, HttpStatusCode httpStatusCode);
         }
 
         /// <summary>
