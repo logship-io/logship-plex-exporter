@@ -1,9 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logship.Plex.Utility.Internal
 {
@@ -11,5 +7,8 @@ namespace Logship.Plex.Utility.Internal
     {
         [LoggerMessage(LogLevel.Error, "Uncaught Exception in IntervalService")]
         public static partial void UncaughtServiceException(ILogger logger, Exception ex);
+
+        [LoggerMessage(LogLevel.Error, "Failed to send UDP message")]
+        public static partial void AgentExportFailed(ILogger logger, Exception ex);
     }
 }
