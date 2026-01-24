@@ -39,10 +39,18 @@ namespace Logship.Plex.Exporter.ConsoleHost
                 .AddPlexServices(config)
                 .AddApi(_ =>
                 {
-                    _.AddApiHttpClients(client =>
-                    {
-                        client.BaseAddress = new Uri(host, UriKind.Absolute);
-                    });
+                    _.AddApiHttpClients(
+                        client =>
+                        {
+                            client.BaseAddress = new Uri(host, UriKind.Absolute);
+                            client.Timeout = TimeSpan.FromSeconds(30);
+                        },
+                        builder =>
+                        {
+                            builder
+                                .AddRetryPolicy(3)
+                                .AddCircuitBreakerPolicy(5, TimeSpan.FromSeconds(30));
+                        });
                     _.AddTokens(new ApiKeyToken(token!, ClientUtils.ApiKeyHeader.X_Plex_Token, prefix: string.Empty));
                     _.UseProvider<RateLimitProvider<ApiKeyToken>, ApiKeyToken>();
                 });
