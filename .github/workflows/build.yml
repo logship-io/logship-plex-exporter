@@ -10,7 +10,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  DOTNET_VERSION: '9.0.103'
+  DOTNET_VERSION: '10.0.2'
 
 jobs:
   build:
