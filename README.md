@@ -26,7 +26,7 @@ The exporter supports two output modes: **agent** (default) and **direct**.
 
 ### Agent Mode (Recommended)
 
-Agent mode sends JSON events via UDP packets to a Logship agent. This is the preferred method for production deployments.
+Agent mode routes output to a logship agent. Running an agent simplifies configuration and ingestion from multiple different datasources. This is the preferred method for deployments. See [https://github.com/logship-io/logship-agent](https://github.com/logship-io/logship-agent).
 
 ```json
 {
