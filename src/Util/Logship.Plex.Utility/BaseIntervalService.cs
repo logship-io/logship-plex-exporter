@@ -1,4 +1,4 @@
-﻿using Logship.Plex.OpenApi.Api;
+using Logship.Plex.OpenApi.Api;
 using Logship.Plex.Utility.Internal;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -51,22 +51,52 @@ namespace Logship.Plex.Utility
 
         private async Task ExecuteAsync(CancellationToken token)
         {
-            var identity = await this.api.GetServerIdentityAsync(token);
-            string machine = identity.Ok()!.MediaContainer!.MachineIdentifier!;
+            string? machine = null;
             while (token.IsCancellationRequested == false
                 && this._cts.IsCancellationRequested == false)
             {
                 try
                 {
-                    var results = await this.FetchDataAsync(machine, token);
-                    await this.exporter.SendAsync(results, token);
-                } catch (OperationCanceledException) when (token.IsCancellationRequested) { }
-                catch(Exception ex)
+                    if (machine == null)
+                    {
+                        var identity = await this.api.GetServerIdentityAsync(token);
+                        if (identity.TryOk(out var identityResult))
+                        {
+                            machine = identityResult.MediaContainer?.MachineIdentifier;
+                        }
+
+                        if (machine == null)
+                        {
+                            Log.IdentityUnavailable(logger);
+                        }
+                    }
+
+                    if (machine != null)
+                    {
+                        var results = await this.FetchDataAsync(machine, token);
+                        await this.exporter.SendAsync(results, token);
+                    }
+                }
+                catch (OperationCanceledException) when (token.IsCancellationRequested) { }
+                catch (Exception ex)
                 {
                     Log.UncaughtServiceException(logger, ex);
+                    throw;
                 }
 
-                await Task.Delay(Interval, this._cts.Token);
+                try
+                {
+                    await Task.Delay(Interval, this._cts.Token);
+                }
+                catch (OperationCanceledException) when (this._cts.IsCancellationRequested)
+                {
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Log.UncaughtServiceException(logger, ex);
+                    throw;
+                }
             }
         }
 
