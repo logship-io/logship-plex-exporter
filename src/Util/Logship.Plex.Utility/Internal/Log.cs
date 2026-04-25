@@ -10,5 +10,8 @@ namespace Logship.Plex.Utility.Internal
 
         [LoggerMessage(LogLevel.Error, "Failed to send UDP message")]
         public static partial void AgentExportFailed(ILogger logger, Exception ex);
+
+        [LoggerMessage(LogLevel.Warning, "Plex server identity not available; will retry next interval")]
+        public static partial void IdentityUnavailable(ILogger logger);
     }
 }

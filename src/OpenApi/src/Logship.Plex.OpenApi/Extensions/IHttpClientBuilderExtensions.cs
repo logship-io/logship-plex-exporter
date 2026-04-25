@@ -67,7 +67,7 @@ namespace Logship.Plex.OpenApi.Extensions
             => HttpPolicyExtensions
                 .HandleTransientHttpError()
                 .Or<TimeoutRejectedException>()
-                .RetryAsync(retries);
+                .WaitAndRetryAsync(retries, retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)));
 
         private static AsyncTimeoutPolicy<HttpResponseMessage> TimeoutPolicy(TimeSpan timeout)
             => Policy.TimeoutAsync<HttpResponseMessage>(timeout);
